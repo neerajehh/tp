@@ -1,3 +1,5 @@
+package seedu.ClassMate;
+
 import java.util.ArrayList;
 
 public class Module {
