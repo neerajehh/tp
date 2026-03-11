@@ -1,9 +1,25 @@
-Hello from
- ____        _        
-|  _ \ _   _| | _____ 
-| | | | | | | |/ / _ \
-| |_| | |_| |   <  __/
-|____/ \__,_|_|\_\___|
+Welcome to
+  ____ _               __  __       _
+ / ___| | __ _ ___ ___|  \/  | __ _| |_ ___
+| |   | |/ _` / __/ __| |\/| |/ _` | __/ _ \
+| |___| | (_| \__ \__ \ |  | | (_| | ||  __/
+ \____|_|\__,_|___/___/_|  |_|\__,_|\__\___|
 
-What is your name?
-Hello James Gosling
+I'm your CEG course planning assistant!
+Type 'help' to see available commands.
+List of commands:
+Command: view grad req
+- Print CEG graduation requirements
+Command: prereq <module code>
+- Show prerequisites for a module
+Command: module <module code>
+- Show information for a module
+Command: available <module code> <semester>
+- Check if module is available in a specific semester
+Command: specialisations
+- List all CEG specialisations
+Command: specialisation <name>
+- Show detailed info for a specialisation
+Command: bye
+- Exit ClassMate
+Goodbye! Happy course planning!
