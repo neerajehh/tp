@@ -1,6 +1,7 @@
 package seedu.ClassMate;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class Major {
 
@@ -11,6 +12,21 @@ public class Major {
     public Major() {
         this.coreModules = new ArrayList<>();
         setupCEGModules();
+    }
+
+    @Override
+    public String toString() {
+        if (coreModules.isEmpty()) {
+            return "Core Modules List is currently empty.";
+        }
+
+        String moduleListHeader = "Here is a list of modules required to fulfill CEG Major: ";
+
+        String moduleList = coreModules.stream()
+                .map(Module::toString)
+                .collect(Collectors.joining("\n"));
+
+        return moduleListHeader + moduleList;
     }
 
     // Setup coreModule list by hardcoding the construction of modules
