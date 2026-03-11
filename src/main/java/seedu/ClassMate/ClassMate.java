@@ -8,12 +8,12 @@ public class ClassMate {
      */
     public static void main(String[] args) {
         String logo = "  ____ _               __  __       _\n"
-                + " / ___| | __ _ ___ ___|  \\/  | __ _| |_ ___  \n"
-                + "| |   | |/ _` / __/ __| |\\/| |/ _` | __/ _ \\ \n"
-                + "| |___| | (_| \\__ \\__ \\ |  | | (_| | ||  __/ \n"
-                + " \\____|_|\\__,_|___/___/_|  |_|\\__,_|\\__\\___| \n";
+                + " / ___| | __ _ ___ ___|  \\/  | __ _| |_ ___\n"
+                + "| |   | |/ _` / __/ __| |\\/| |/ _` | __/ _ \\\n"
+                + "| |___| | (_| \\__ \\__ \\ |  | | (_| | ||  __/\n"
+                + " \\____|_|\\__,_|___/___/_|  |_|\\__,_|\\__\\___|\n";
 
-        System.out.println("Welcome to \n" + logo);
+        System.out.println("Welcome to\n" + logo);
         System.out.println("I'm your CEG course planning assistant!");
         System.out.println("Type 'help' to see available commands.");
 
