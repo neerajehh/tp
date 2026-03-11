@@ -7,7 +7,7 @@ public class ClassMate {
      * Main entry-point for the java.classmate.Classmate application.
      */
     public static void main(String[] args) {
-        String logo = "  ____ _               __  __       _        \n"
+        String logo = "  ____ _               __  __       _\n"
                 + " / ___| | __ _ ___ ___|  \\/  | __ _| |_ ___  \n"
                 + "| |   | |/ _` / __/ __| |\\/| |/ _` | __/ _ \\ \n"
                 + "| |___| | (_| \\__ \\__ \\ |  | | (_| | ||  __/ \n"
@@ -15,7 +15,7 @@ public class ClassMate {
 
         System.out.println("Welcome to \n" + logo);
         System.out.println("I'm your CEG course planning assistant!");
-        System.out.println("Type 'help to see available commands.");
+        System.out.println("Type 'help' to see available commands.");
 
         Scanner in = new Scanner(System.in);
         
