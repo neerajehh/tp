@@ -218,9 +218,7 @@ public class Specialisation {
 
         Module mle4228 = new Module("MLE4228", "Materials for Robotic Sensing and Actuation");
         mle4228.addPrerequisites("Check with your faculty");
-
-
-
+        
         switch (specialisationName) {
         case "Internet of Things":
             electiveRequirements = "Choose any two courses, or totaling at least 8 units, from the list below:";
