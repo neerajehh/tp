@@ -43,6 +43,16 @@ public class Module {
         }
     }
 
+    public void addPrerequisites(String... prereqCodes) {
+        if (prereqCodes == null) {
+            return;
+        }
+
+        for (String prereqCode : prereqCodes) {
+            addPrerequisite(prereqCode.trim());
+        }
+    }
+
     /**
      * Returns a string representation of the module.
      *

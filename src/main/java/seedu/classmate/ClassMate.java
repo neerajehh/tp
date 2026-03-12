@@ -53,6 +53,10 @@ public class ClassMate {
                     System.out.println("Listing all specificiations:");
                     break;
 
+                case "specialisation":
+                    String specialisationName = command.getArgs();
+                    System.out.println("Listing details for " + specialisationName);
+                    Specialisation spec = new Specialisation(specialisationName);
                 default:
                     throw new ClassMateException("Unknown command.");
                 }
