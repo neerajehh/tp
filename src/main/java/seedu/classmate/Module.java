@@ -20,6 +20,9 @@ public class Module {
      */
     public Module(String moduleCode, String moduleName) {
         // Add guard clause against empty details
+        assert moduleCode != null : "Module code should not be null";
+        assert moduleName != null : "Module name should not be null";
+
         if (moduleCode.trim().isEmpty() || moduleName.trim().isEmpty()) {
             throw new ClassMateException("Module details cannot be empty.");
         }
@@ -36,7 +39,9 @@ public class Module {
      * @param prereqCode The module code of the prerequisite module.
      */
     public void addPrerequisite(String prereqCode) {
-        // Add guard clause against duplicate prerequisite entry: See ModuleTest class
+        assert prereqCode != null : "Prerequisite code cannot be null";
+        assert !prereqCode.trim().isEmpty() : "Prerequisite code cannot be empty";
+
         boolean isDuplicate = prerequisites.contains(prereqCode);
         if (!isDuplicate) {
             this.prerequisites.add(prereqCode);
@@ -44,9 +49,7 @@ public class Module {
     }
 
     public void addPrerequisites(String... prereqCodes) {
-        if (prereqCodes == null) {
-            return;
-        }
+        assert prereqCodes != null : "Prerequisite array should not be null";
 
         for (String prereqCode : prereqCodes) {
             addPrerequisite(prereqCode.trim());
@@ -90,6 +93,8 @@ public class Module {
     }
 
     public String printPrereqTree(Major major) {
+        assert major != null : "Major object should not be null";
+        
         StringBuilder sb = new StringBuilder();
 
         ArrayList<Module> parents = major.findModulesWithPrereq(moduleCode);
