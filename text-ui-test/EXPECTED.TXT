@@ -12,10 +12,8 @@ Command: view grad req
 - Print CEG graduation requirements
 Command: prereq <module code>
 - Show prerequisites for a module
-Command: module <module code>
-- Show information for a module
-Command: available <module code> <semester>
-- Check if module is available in a specific semester
+Command: printModuleInfo <module code(s)>
+- Show information for one or more modules
 Command: specialisations
 - List all CEG specialisations
 Command: specialisation <name>
