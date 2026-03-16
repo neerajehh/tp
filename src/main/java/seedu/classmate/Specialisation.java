@@ -4,7 +4,12 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 /**
- * Represents the CEG specialisation details.
+ * Represents a CEG specialisation.
+ * A Specialisation contains the name of the specialisation, its description,
+ * a list of core modules, a list of elective modules, and the elective requirements
+ * that CEG students must satisfy
+ * When a Specialisation is created, the corresponding description and modules
+ * are automatically initialised based on the specialisation name.
  */
 public class Specialisation {
 
@@ -35,6 +40,13 @@ public class Specialisation {
     private ArrayList<Module> specialisationElectiveModules;
     private String electiveRequirements;
 
+    /**
+     * Constructs a {@code Specialisation} with the specified name.
+     * The constructor initializes the core and elective module lists
+     * and populates them according to the given CEG specialisation.
+     * @param name The name of the CEG specialisation.
+     * @throws ClassMateException If the given name does not correspond to a valid CEG specialisation.
+     */
     public Specialisation(String name) {
         this.specialisationName = name;
         this.specialisationCoreModules = new ArrayList<>();
@@ -42,22 +54,51 @@ public class Specialisation {
         setupCEGSpecialisationModules();
     }
 
+    /**
+     * Returns the name of the specific specialisation.
+     *
+     * @return The specialisation name.
+     */
     public String getSpecialisationName() {
         return specialisationName;
     }
 
+    /**
+     * Returns the list of core modules required for this specialisation.
+     *
+     * @return An {@code ArrayList} containing the core modules.
+     */
     public String getSpecialisationDescription() {
         return specialisationDescription;
     }
 
+    /**
+     * Returns the list of core modules required for this specialisation.
+     *
+     * @return An {@code ArrayList} containing the core modules.
+     */
     public ArrayList<Module> getSpecialisationCoreModules() {
         return specialisationCoreModules;
     }
 
+    /**
+     * Returns the list of elective modules available for this specialisation.
+     *
+     * @return An {@code ArrayList} containing the elective modules.
+     */
     public ArrayList<Module> getSpecialisationElectiveModules() {
         return specialisationElectiveModules;
     }
 
+    /**
+     * Returns a formatted string representation of the specialisation core
+     * and elective modules.
+     *
+     * The output includes all core specialisation modules followed by
+     * the list of elective modules and their requirements.
+     *
+     * @return A formatted string displaying the modules in this specialisation.
+     */
     @Override
     public String toString() {
 
@@ -72,6 +113,15 @@ public class Specialisation {
                         .collect(Collectors.joining("\n"));
     }
 
+    /**
+     * Initialises the description, core modules, and elective modules
+     * for the specified CEG specialisation.
+     *
+     * This method creates all available module objects and assigns the appropriate
+     * modules to the core and elective lists based on the specialisation name.
+     *
+     * @throws ClassMateException if the provided specialisation name does not match any valid CEG specialisation.
+     */
     private void setupCEGSpecialisationModules() {
         Module cs3237 = new Module("CS3237", "Introduction to Internet of Things");
         cs3237.addPrerequisites("CG2028", "CS1010");

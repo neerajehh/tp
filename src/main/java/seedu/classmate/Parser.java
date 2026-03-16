@@ -4,9 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Parses user input into a {@code Command} object.
- * The parser separates the command word from its arguments (e.g. module code / specialisation name)
- * so that the main program can execute the command accordingly
+ * Parses user input commands and returns the corresponding command description.
+ * Maintains a mapping of valid commands to their descriptions.
+ * The {@code parseCommand(String input)} method processes user input,
+ * validates it, and checks whether it matches any known command.
+ * If a valid command is found, the associated description is returned, else
+ * return 'Unknown Message'.
  */
 public class Parser {
 
@@ -23,14 +26,16 @@ public class Parser {
     }
 
     /**
-     * Parses the given user input and returns the corresponding {@code Command}.
-     * @param input Raw input by user.
-     * @return A {@code Command} object containing the command word and its arguments.
-     * @throws ClassMateException For empty inputs.
+     * Parses the user's input and determines whether it matches a valid command.
+     *
+     * @param input The raw command string entered by the user.
+     * @return The description associated with the command if it exists,
+     *         or a message associated with the command if it exists.
+     * @throws ClassMateException If the input provided is empty after trimming.
      */
     public static String parseCommand(String input) {
 
-        String trimmed = input.trim().toLowerCase();
+        String trimmed = input.trim();
 
         if (trimmed.isEmpty()) {
             throw new ClassMateException("Please enter a non-empty input!");
