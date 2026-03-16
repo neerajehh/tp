@@ -34,22 +34,16 @@ public class Specialisation {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
 
-        sb.append("Core Specialisation Modules:\n\n");
-        sb.append(specialisationCoreModules.stream()
-               .map(Module::printInfo)
-               .collect(Collectors.joining("\n")));
-        sb.append("\n\n");
-
-
-        sb.append("Elective Modules (").append(electiveRequirements).append(")\n");
-
-        sb.append(specialisationElectiveModules.stream()
-                .map(Module::printInfo)
-                .collect(Collectors.joining("\n")));
-
-        return sb.toString();
+        return "Core Specialisation Modules:\n\n" +
+                specialisationCoreModules.stream()
+                        .map(Module::printInfo)
+                        .collect(Collectors.joining("\n")) +
+                "\n\n" +
+                "Elective Modules (" + electiveRequirements + ")\n" +
+                specialisationElectiveModules.stream()
+                        .map(Module::printInfo)
+                        .collect(Collectors.joining("\n"));
     }
 
     private void setupCEGSpecialisationModules() {
