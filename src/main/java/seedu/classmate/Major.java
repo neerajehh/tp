@@ -32,13 +32,10 @@ public class Major {
         if (coreModules.isEmpty()) {
             return "Core Modules List is currently empty.";
         }
-
         String moduleListHeader = "Here is a list of modules required to fulfill CEG Major: ";
-
         String moduleList = coreModules.stream()
                 .map(Module::toString)
                 .collect(Collectors.joining("\n"));
-
         return moduleListHeader + moduleList;
     }
 
@@ -66,17 +63,31 @@ public class Major {
         Module cg3207 = new Module("CG3207", "Computer Architecture");
         Module ee4204 = new Module("EE4204", "Computer Networks");
 
+        // Set up semesters
+        ma1511.setSemester("1");
+        ma1512.setSemester("2");
+        ma1508e.setSemester("2");
+        cg2111a.setSemester("2");
+        cg2023.setSemester("2");
+        cg2027.setSemester("1");
+        cg2028.setSemester("2");
+        ee2026.setSemester("1");
+        cg2271.setSemester("1");
+        cg3201.setSemester("2");
+        cg3207.setSemester("1");
+        ee4204.setSemester("2");
+
         // Set up prerequisites
         cg2111a.addPrerequisite("CG1111A");
-        cg2111a.addPrerequisite("CS1010"); // Or equivalent like CS1010E
+        cg2111a.addPrerequisite("CS1010");
         cg2023.addPrerequisite("MA1511");
         cg2023.addPrerequisite("MA1512");
         cg2027.addPrerequisite("CG1111A");
         cg2028.addPrerequisite("CG2027");
         ee2026.addPrerequisite("CG1111A");
-        cs2040c.addPrerequisite("CS1010"); // Or equivalent
+        cs2040c.addPrerequisite("CS1010");
         cs2113.addPrerequisite("CS2040C");
-        cs2107.addPrerequisite("CS1010"); // Or equivalent
+        cs2107.addPrerequisite("CS1010");
         cg2271.addPrerequisite("CG1111A");
         cg2271.addPrerequisite("CS2040C");
         cg3201.addPrerequisite("EE2211");
@@ -106,25 +117,34 @@ public class Major {
         coreModules.add(ee4204);
     }
 
+    /**
+     * Finds a module by its module code.
+     *
+     * @param code The module code to search for.
+     * @return The module if found, null otherwise.
+     */
     public Module findModule(String code) {
-        for (Module m: coreModules) {
+        for (Module m : coreModules) {
             if (m.getModuleCode().equals(code)) {
                 return m;
             }
         }
-
-        return null; // or throw exception
+        return null;
     }
 
+    /**
+     * Finds all modules that have the given module as a prerequisite.
+     *
+     * @param prereqCode The prerequisite module code to search for.
+     * @return A list of modules that require the given module.
+     */
     public ArrayList<Module> findModulesWithPrereq(String prereqCode) {
         ArrayList<Module> modules = new ArrayList<>();
-
-        for (Module module: coreModules) {
+        for (Module module : coreModules) {
             if (module.getPrerequisites().contains(prereqCode)) {
                 modules.add(module);
             }
         }
-
         return modules;
     }
 }

@@ -48,6 +48,11 @@ public class Module {
         }
     }
 
+    /**
+     * Adds multiple prerequisite module codes to this module.
+     *
+     * @param prereqCodes The module codes of the prerequisite modules.
+     */
     public void addPrerequisites(String... prereqCodes) {
         assert prereqCodes != null : "Prerequisite array should not be null";
         for (String prereqCode : prereqCodes) {
@@ -71,6 +76,27 @@ public class Module {
      */
     public void setSemester(String semester) {
         this.semester = semester;
+    }
+
+    /**
+     * Checks if this module is available in the given semester.
+     *
+     * @param querySemester The semester to check (e.g., "sem1", "sem2").
+     * @return A string indicating availability.
+     */
+    public String checkAvailability(String querySemester) {
+        assert querySemester != null : "Query semester should not be null";
+        assert !querySemester.trim().isEmpty() : "Query semester should not be empty";
+        String query = querySemester.trim().toLowerCase();
+        if (semester.equals("1/2")) {
+            return moduleCode + " is available in both Semester 1 and Semester 2.";
+        } else if (semester.equals("1") && query.equals("sem1")) {
+            return "Yes, " + moduleCode + " is only available in Semester 1.";
+        } else if (semester.equals("2") && query.equals("sem2")) {
+            return "Yes, " + moduleCode + " is only available in Semester 2.";
+        } else {
+            return "No, " + moduleCode + " is not available in " + querySemester + ".";
+        }
     }
 
     /**
@@ -109,6 +135,11 @@ public class Module {
                 ": " + String.join(", ", prerequisites);
     }
 
+    /**
+     * Returns the module code.
+     *
+     * @return The module code.
+     */
     public String getModuleCode() {
         return this.moduleCode;
     }
@@ -122,6 +153,12 @@ public class Module {
         return prerequisites;
     }
 
+    /**
+     * Prints the prerequisite tree for this module.
+     *
+     * @param major The major object containing all modules.
+     * @return A string representation of the prerequisite tree.
+     */
     public String printPrereqTree(Major major) {
         assert major != null : "Major object should not be null";
         StringBuilder sb = new StringBuilder();
@@ -162,3 +199,4 @@ public class Module {
         }
     }
 }
+

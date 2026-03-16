@@ -61,6 +61,20 @@ public class ClassMate {
                         }
                     }
                     break;
+                case "querymoduleavailability":
+                    String[] availArgs = command.getArgs().split("\\s+");
+                    logger.info("Checking availability for: " + command.getArgs());
+                    if (availArgs.length < 2) {
+                        throw new ClassMateException("Format: queryModuleAvailability <module code> <sem1/sem2>");
+                    }
+                    assert availArgs.length >= 2 : "Availability check requires module code and semester";
+                    Module availModule = major.findModule(availArgs[0].trim());
+                    if (availModule != null) {
+                        System.out.println(availModule.checkAvailability(availArgs[1].trim()));
+                    } else {
+                        System.out.println("Module " + availArgs[0] + " not found.");
+                    }
+                    break;
                 case "specialisations":
                     System.out.println("Listing all specifications:");
                     break;
@@ -93,6 +107,8 @@ public class ClassMate {
         System.out.println("- Show prerequisites for a module");
         System.out.println("Command: printModuleInfo <module code(s)>");
         System.out.println("- Show information for one or more modules");
+        System.out.println("Command: queryModuleAvailability <module code> <sem1/sem2>");
+        System.out.println("- Check if a module is available in a specific semester");
         System.out.println("Command: specialisations");
         System.out.println("- List all CEG specialisations");
         System.out.println("Command: specialisation <name>");
@@ -105,3 +121,4 @@ public class ClassMate {
         System.out.println("Goodbye! Happy course planning!");
     }
 }
+

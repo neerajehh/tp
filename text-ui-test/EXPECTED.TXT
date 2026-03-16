@@ -14,6 +14,8 @@ Command: prereq <module code>
 - Show prerequisites for a module
 Command: printModuleInfo <module code(s)>
 - Show information for one or more modules
+Command: queryModuleAvailability <module code> <sem1/sem2>
+- Check if a module is available in a specific semester
 Command: specialisations
 - List all CEG specialisations
 Command: specialisation <name>
