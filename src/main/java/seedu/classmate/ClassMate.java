@@ -6,19 +6,13 @@ import java.util.logging.Logger;
 public class ClassMate {
     private static final Logger logger = Logger.getLogger(ClassMate.class.getName());
     private static SpecialisationOverview specOverview = new SpecialisationOverview();
+    private static final Display display = new Display();
 
     /**
      * Main entry-point for the java.classmate.Classmate application.
      */
     public static void main(String[] args) {
-        String logo = "  ____ _               __  __       _\n"
-                + " / ___| | __ _ ___ ___|  \\/  | __ _| |_ ___\n"
-                + "| |   | |/ _` / __/ __| |\\/| |/ _` | __/ _ \\\n"
-                + "| |___| | (_| \\__ \\__ \\ |  | | (_| | ||  __/\n"
-                + " \\____|_|\\__,_|___/___/_|  |_|\\__,_|\\__\\___|\n";
-        System.out.println("Welcome to\n" + logo);
-        System.out.println("I'm your CEG course planning assistant!");
-        System.out.println("Type 'help' to see available commands.");
+        display.showWelcome();
         logger.info("ClassMate application started.");
         Scanner in = new Scanner(System.in);
         Major major = new Major();
@@ -44,7 +38,7 @@ public class ClassMate {
                     throw new ClassMateException("Please input a non-empty command!");
 
                 case "bye":
-                    goodbyeMessage();
+                    display.showGoodbye();
                     logger.info("ClassMate application exited.");
                     return;
 
@@ -138,8 +132,4 @@ public class ClassMate {
         }
     }
 
-    private static void goodbyeMessage() {
-        System.out.println("Goodbye! Happy course planning!");
-    }
 }
-
