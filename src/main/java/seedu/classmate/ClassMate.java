@@ -84,6 +84,7 @@ public class ClassMate {
                     logger.info("Fetching specialisation: " + specialisationName);
                     System.out.println("Listing details for " + specialisationName);
                     Specialisation spec = new Specialisation(specialisationName);
+                    System.out.println(spec);
                     break;
                 default:
                     throw new ClassMateException("Unknown command.");
