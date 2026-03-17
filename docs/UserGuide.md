@@ -1,21 +1,21 @@
-]# User Guide
+# User Guide
 
 ClassMate is a CLI-based chatbot that assists NUS UG CEG students with timetable and course schedule planning, so as to tailor to their academic pursuits and scheduling needs, while tracking progress toward graduation, specialisation, minor, and other degree requirements.
 
 * [Quick Start](#quick-start)
 * [Features](#features)
-  * [Viewing major requirements: `view grad req`](#viewing-major-requirements-view-grad-req)
-  * [Printing module info: `printModuleInfo`](#printing-module-info-printmoduleinfo)
-  * [Querying prerequisites: `prereq`](#querying-prerequisites-prereq)
-  * [Viewing list of specialisations: `specialisations`](#viewing-list-of-specialisations-specialisations)
-  * [Viewing specialisation info: `specialisation`](#viewing-specialisation-info-specialisation)
+  * [Viewing CEG graduation requirements: `viewGradReqs`](#viewing-major-requirements-viewgradreqs)
+  * [Viewing module info: `printModuleInfo`](#printing-module-info-printmoduleinfo)
+  * [Viewing prerequisites: `viewPrereqs`](#viewing-prerequisites-viewprereqs)
+  * [Viewing list of specialisations: `viewSpecialisations`](#viewing-list-of-specialisations-viewspecialisations)
+  * [Viewing specialisation info: `viewSpecialisationInfo`](#viewing-specialisation-info-viewspecialisationinfo)
 * [Command Summary](#command-summary)
 
 ## Quick Start
 
 1. Ensure that you have Java 17 or above installed.
-2. Download the latest version of `ClassMate` from [here](https://github.com/AY2526S2-CS2113-W11-4/tp/releases).
-3. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar classmate.jar` command to run the application.
+2. Download the latest version of `ClassMate.jar` from [here](https://github.com/AY2526S2-CS2113-W11-4/tp/releases).
+3. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar ClassMate.jar` command to run the application.
 
 ## Features
 
@@ -25,18 +25,17 @@ ClassMate is a CLI-based chatbot that assists NUS UG CEG students with timetable
 
 * Words in `UPPER_CASE` are the parameters to be supplied by the user.
 * Parameters can be in any order.
-* **Case Insensitivity**: Commands are case-insensitive.
 
 </div>
 
-### Viewing major requirements: `view grad req`
+### Viewing major requirements: `viewGradReqs`
 
 Shows a list of modules the student has to clear in order to graduate.
 
-Format: `view grad req`
+Format: `viewGradReqs`
 
 Examples:
-* `view grad req`
+* `viewGradReqs`
 
 ### Printing module info: `printModuleInfo`
 
@@ -54,31 +53,31 @@ Module Info for CS2113
 Code: CS2113 Name: Software Engineering & Object-Oriented Programming Units: 4 Semester: 1/2 Prerequisites: CS2040C Can take: NO
 ```
 
-### Querying prerequisites: `prereq`
+### Viewing prerequisites: `viewPrereqs`
 
-Given a module code, queries for the prerequisite tree.
+Given a module code, view the prerequisite tree.
 
-Format: `prereq MODULE_CODE`
-
-Examples:
-* `prereq CG2028`
-* `prereq CS2113`
-
-### Viewing list of specialisations: `specialisations`
-
-Provides an overview of available CEG specialisations.
-
-Format: `specialisations`
-
-### Viewing specialisation info: `specialisation`
-
-Provides the list of modules to take in order to fulfill the specialisation.
-
-Format: `specialisation SPECIALISATION_NAME`
+Format: `viewPrereqs MODULE_CODE`
 
 Examples:
-* `specialisation Advanced Electronics`
-* `specialisation iot`
+* `viewPrereqs CG2028`
+* `viewPrereqs CS2113`
+
+### Viewing list of specialisations: `viewSpecialisations`
+
+Provides a list of available CEG specialisations.
+
+Format: `viewSpecialisations`
+
+### Viewing specialisation info: `viewSpecialisationInfo`
+
+Provides an overview of the specialisation and the list of modules to take in order to fulfill said specialisation. Use `viewSpecialisations` to check the SPECIALISATION_INDEX.
+
+Format: `viewSpecialisationInfo SPECIALISATION_INDEX`
+
+Examples:
+* `viewSpecialisationInfo 2`
+* `viewSpecialisationInfo 5`
 
 ---
 
@@ -86,8 +85,8 @@ Examples:
 
 | Action | Format | Examples |
 | :--- | :--- | :--- |
-| **Major Reqs** | `view grad req` | `view grad req` |
+| **Major Reqs** | `viewGradReqs`
 | **Module Info** | `printModuleInfo MODULE_CODE...` | `printModuleInfo CS2113 CG2028` |
-| **Prerequisites** | `prereq MODULE_CODE` | `prereq CG2028` |
-| **Specialisation List** | `specialisations` | `specialisations` |
-| **Specialisation Info** | `specialisation SPECIALISATION_NAME` | `specialisation Advanced Electronics` |
+| **Prerequisites** | `viewPrereqs MODULE_CODE` | `viewPrereqs CG2028` |
+| **Specialisation List** | `viewSpecialisations` 
+| **Specialisation Info** | `viewSpecialisationInfo SPECIALISATION_INDEX` | `viewSpecialisationInfo 2` |
