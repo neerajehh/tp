@@ -11,22 +11,18 @@ import seedu.classmate.commands.ViewGradReqsCommand;
 import seedu.classmate.commands.ViewSpecialisationsCommand;
 
 /**
- * Parses user input commands and returns the corresponding command description.
- * Maintains a mapping of valid commands to their descriptions.
- * The {@code parseCommand(String input)} method processes user input,
- * validates it, and checks whether it matches any known command.
- * If a valid command is found, the associated description is returned, else
- * return 'Unknown Message'.
+ * Parses user input and converts it into the corresponding {@code Command} object
+ * The input is first trimmed and split into a command word and its arguments.
+ * Based on the command word, the corresponding {@code Command} is instantiated.
  */
 public class Parser {
 
     /**
-     * Parses the user's input and determines whether it matches a valid command.
+     * Parses the user's input and returns the corresponding {@code Command}.
      *
      * @param input The raw command string entered by the user.
-     * @return The description associated with the command if it exists,
-     *         or a message associated with the command if it exists.
-     * @throws ClassMateException If the input provided is empty after trimming.
+     * @return A {@code Command} object representing the user's input.
+     * @throws ClassMateException If the input provided is empty or the command is unknown.
      */
     public static Command parse(String input) {
 
@@ -70,24 +66,5 @@ public class Parser {
         }
     }
 
-    /**
-     * Prints the list of ClassMate commands and their descriptions
-     * to help users on how to use the application
-     */
-    public static void displayHelp() {
-        System.out.println("Available commands:\n" +
-                "- help: " +
-                "Viewing help\n" +
-                "- viewGradReqs: " +
-                "Print CEG graduation requirements\n" +
-                "- viewModuleInfo MODULE_CODE: " +
-                "Show details for a specific module\n" +
-                "- queryModuleAvailability MODULE_CODE SEM<1/2>: " +
-                "Check if a module MODULE_CODE is available in a certain semester SEM<1/2>\n" +
-                "- viewSpecialisations: " +
-                "View list of all CEG specialisations\n" +
-                "- viewSpecialisationInfo SPECIALISATION_INDEX: " +
-                "View specific requirements for a specialisation. See viewSpecialisation for index");
-    }
 }
 

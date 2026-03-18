@@ -5,10 +5,17 @@ import seedu.classmate.Major;
 import seedu.classmate.SpecialisationOverview;
 
 /**
- * Prints the CEG graduation requirements.
+ * Represents a command that displays the graduation requirements of the CEG major.
  */
 public class ViewGradReqsCommand extends Command{
 
+    /**
+     * Displays the graduant requirements.
+     *
+     * @param major The {@code Major} instance containing the graduation requirement data.
+     * @param display The {@code Display} handler (unused).
+     * @param specialisationOverview The overview of all specialisations (unused).
+     */
     @Override
     public void executeCommand(Major major, Display display, SpecialisationOverview specialisationOverview) {
         System.out.println(major);

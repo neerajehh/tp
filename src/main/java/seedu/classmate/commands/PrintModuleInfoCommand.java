@@ -6,14 +6,30 @@ import seedu.classmate.Major;
 import seedu.classmate.Module;
 import seedu.classmate.SpecialisationOverview;
 
+/**
+ * Represents a command that displays information about a specified module.
+ */
 public class PrintModuleInfoCommand extends Command {
 
     private final String moduleCode;
 
+    /**
+     * Constructs a {@code PrintModuleInfoCommand} with the givne module code.
+     *
+     * @param args The module code entered by the user.
+     */
     public PrintModuleInfoCommand(String args) {
         this.moduleCode = args.trim().toUpperCase();
     }
 
+    /**
+     * Displays detailed information of the specified module.
+     *
+     * @param major The {@code Major} instance containing module data.
+     * @param display The {@code Display} handler (unused).
+     * @param specialisationOverview The overview of all specialisations (unused).
+     * @throws ClassMateException If the module code is empty or the module is not found.
+     */
     @Override
     public void executeCommand(Major major, Display display, SpecialisationOverview specialisationOverview) {
         if (moduleCode.isEmpty()) {

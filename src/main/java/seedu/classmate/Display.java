@@ -27,4 +27,27 @@ public class Display {
     public void showGoodbye() {
         System.out.println("Goodbye! Happy course planning!");
     }
+
+    /**
+     * Prints the list of ClassMate commands and their descriptions
+     * to help users on how to use the application
+     */
+    public static void displayHelp() {
+        System.out.println("Available commands:\n" +
+                "- help: " +
+                "Viewing help\n" +
+                "- viewGradReqs: " +
+                "Print CEG graduation requirements\n" +
+                "- viewPrereqs MODULE_CODE: " +
+                "View the prerequisite tree of a specific module\n" +
+                "- viewModuleInfo MODULE_CODE: " +
+                "Show details for a specific module\n" +
+                "- queryModuleAvailability MODULE_CODE SEM<1/2>: " +
+                "Check if a module MODULE_CODE is available in a certain semester SEM<1/2>\n" +
+                "- viewSpecialisations: " +
+                "View list of all CEG specialisations\n" +
+                "- viewSpecialisationInfo SPECIALISATION_INDEX: " +
+                "View specific requirements for a specialisation. See viewSpecialisation for index");
+    }
+
 }

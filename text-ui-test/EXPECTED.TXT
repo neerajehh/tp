@@ -10,6 +10,7 @@ Type 'help' to see available commands.
 Available commands:
 - help: Viewing help
 - viewGradReqs: Print CEG graduation requirements
+- viewPrereqs MODULE_CODE: View the prerequisite tree of a specific module
 - viewModuleInfo MODULE_CODE: Show details for a specific module
 - queryModuleAvailability MODULE_CODE SEM<1/2>: Check if a module MODULE_CODE is available in a certain semester SEM<1/2>
 - viewSpecialisations: View list of all CEG specialisations
