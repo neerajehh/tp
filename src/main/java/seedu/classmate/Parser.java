@@ -26,7 +26,7 @@ public class Parser {
 
         String[] components = trimmed.split("\\s+", 2);
         String commandWord = components[0].toLowerCase();
-        String arguments = (components.length > 1) ? components[1].trim() : "";
+        String arguments = (components.length > 1) ? components[1].trim().toUpperCase() : "";
 
         return CommandManager.createCommand(commandWord, arguments);
     }
