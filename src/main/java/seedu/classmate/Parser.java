@@ -32,9 +32,9 @@ public class Parser {
             throw new ClassMateException("Please enter a non-empty input!");
         }
 
-        String[] arguments = trimmed.split("\\s+", 2);
-        String commandWord = arguments[0];
-        String args = arguments.length > 1 ? arguments[1] : "";
+        String[] components = trimmed.split("\\s+", 2);
+        String commandWord = components[0].toLowerCase();
+        String arguments = (components.length > 1) ? components[1].trim() : "";
 
         switch (commandWord) {
         case "help":
@@ -43,23 +43,23 @@ public class Parser {
         case "bye":
             return new ByeCommand();
 
-        case "viewGradReqs":
+        case "viewgradreqs":
             return new ViewGradReqsCommand();
 
-        case "viewPrereqs":
-            return new PrereqCommand(args);
+        case "viewprereqs":
+            return new PrereqCommand(arguments);
 
-        case "printModuleInfo":
-            return new PrintModuleInfoCommand(args);
+        case "printmoduleinfo":
+            return new PrintModuleInfoCommand(arguments);
 
-        case "queryModuleAvailability":
-            return new QueryModuleAvailabilityCommand(args);
+        case "querymoduleavailability":
+            return new QueryModuleAvailabilityCommand(arguments);
 
-        case "viewSpecialisations":
+        case "viewspecialisations":
             return new ViewSpecialisationsCommand();
 
-        case "viewSpecialisationInfo":
-            return new SpecialisationInfoCommand(args);
+        case "viewspecialisationinfo":
+            return new SpecialisationInfoCommand(arguments);
 
         default:
             throw new ClassMateException("Unknown command. Enter 'help' for available commands.");

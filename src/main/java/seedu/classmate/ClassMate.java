@@ -14,6 +14,9 @@ public class ClassMate {
      * Main entry-point for the java.classmate.Classmate application.
      */
     public static void main(String[] args) {
+
+        assert false : "dummy assertion set to fail";
+
         display.showWelcome();
         logger.info("ClassMate application started.");
         Scanner in = new Scanner(System.in);
