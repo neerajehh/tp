@@ -25,6 +25,10 @@ public class Parser {
         }
 
         String[] components = trimmed.split("\\s+", 2);
+
+        assert components.length > 0 && components.length <= 2 : "The split method has failed to split the user " +
+                "input into at most 2 components";
+
         String commandWord = components[0].toLowerCase();
         String arguments = (components.length > 1) ? components[1].trim().toUpperCase() : "";
 
