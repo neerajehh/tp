@@ -2,10 +2,10 @@ package seedu.classmate;
 import org.junit.jupiter.api.Test;
 import seedu.classmate.commands.Command;
 import seedu.classmate.commands.HelpCommand;
+import seedu.classmate.commands.PrereqCommand;
+import seedu.classmate.commands.ViewSpecialisationsCommand;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class ParserTest {
@@ -33,5 +33,24 @@ public class ParserTest {
 
         assertEquals("Unknown command. Enter 'help' for available commands.",
                 exception.getMessage());
+    }
+
+    @Test
+    public void parseValidCommandWithMixedCase() {
+        String userInput = "ViEwPrErEqS Cs2113";
+
+        Command output = Parser.parse(userInput);
+        assertInstanceOf(PrereqCommand.class, output, "Output is of type PrereqCommand");
+    }
+
+    @Test
+    public void parseInvalidCommandWithMixedCase() {
+        String userInput = "aCommand Cs2113";
+
+        ClassMateException exception = assertThrows(ClassMateException.class,
+                () -> Parser.parse(userInput));
+
+        assertEquals("Unknown command. Enter 'help' for available commands.", exception.getMessage(),
+                "Error message informs the user that the command is invalid");
     }
 }
