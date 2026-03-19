@@ -6,7 +6,7 @@ package seedu.classmate;
  */
 public class Ui {
 
-    public void printLine() {
+    public static void printLine() {
         System.out.println("_".repeat(30));
     }
 
@@ -28,7 +28,7 @@ public class Ui {
         printLine();
     }
 
-    public void showHelp() {
+    public static void showHelp() {
         System.out.println("Available commands:\n" +
                 "- help: " +
                 "Viewing help\n" +
