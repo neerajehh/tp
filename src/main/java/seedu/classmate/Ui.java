@@ -4,11 +4,12 @@ package seedu.classmate;
  * Handles all user interface interactions for the ClassMate application.
  * This class is responsible for displaying messages to the user.
  */
-public class Display {
+public class Ui {
 
-    /**
-     * Displays the welcome message and application logo.
-     */
+    public static void printLine() {
+        System.out.println("_".repeat(30));
+    }
+
     public void showWelcome() {
         String logo = "  ____ _               __  __       _\n"
                 + " / ___| | __ _ ___ ___|  \\/  | __ _| |_ ___\n"
@@ -19,20 +20,15 @@ public class Display {
         System.out.println("Welcome to\n" + logo);
         System.out.println("I'm your CEG course planning assistant!");
         System.out.println("Type 'help' to see available commands.");
+        printLine();
     }
 
-    /**
-     * Displays the goodbye message when the program exits.
-     */
-    public void showGoodbye() {
+    public static void showGoodbye() {
         System.out.println("Goodbye! Happy course planning!");
+        printLine();
     }
 
-    /**
-     * Prints the list of ClassMate commands and their descriptions
-     * to help users on how to use the application
-     */
-    public static void displayHelp() {
+    public static void showHelp() {
         System.out.println("Available commands:\n" +
                 "- help: " +
                 "Viewing help\n" +
@@ -48,6 +44,27 @@ public class Display {
                 "View list of all CEG specialisations\n" +
                 "- viewSpecialisationInfo SPECIALISATION_INDEX: " +
                 "View specific requirements for a specialisation. See viewSpecialisation for index");
+        printLine();
     }
+
+    /**
+     * Prints a standardized error message to the user.
+     * * DESIGN RATIONALE: Adheres to the Single Responsibility Principle (SRP) by
+     * decoupling error detection from error presentation. Logic classes (Parser/Command)
+     * throw {@code ClassMateException}, the coordinator class catches it, and this
+     * method handles the final string formatting for the user.
+     *
+     * @param errorMessage The specific error detail to be displayed. Must not be null.
+     */
+    public void showError(String errorMessage) {
+        // Assertion: Ensure error handler layer provides a message
+        assert errorMessage != null : "Error message passed to UI should not be null";
+
+        printLine();
+        System.out.println("    (!) ERROR: " + errorMessage);
+        printLine();
+    }
+
+    //TODO: major, module, specialisation related printing
 
 }

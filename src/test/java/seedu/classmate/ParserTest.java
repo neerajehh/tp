@@ -1,5 +1,7 @@
 package seedu.classmate;
 import org.junit.jupiter.api.Test;
+
+import seedu.classmate.commands.ByeCommand;
 import seedu.classmate.commands.Command;
 import seedu.classmate.commands.HelpCommand;
 import seedu.classmate.commands.PrereqCommand;
@@ -35,6 +37,14 @@ public class ParserTest {
 
         assertEquals("Unknown command. Enter 'help' for available commands.",
                 exception.getMessage());
+    }
+
+    @Test
+    public void parse_byeInput_returnsByeCommand() {
+        String input = "bye";
+        Command result = Parser.parse(input);
+
+        assertInstanceOf(ByeCommand.class, result);
     }
 
     @Test

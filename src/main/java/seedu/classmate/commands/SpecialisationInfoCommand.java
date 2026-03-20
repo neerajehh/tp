@@ -1,10 +1,10 @@
 package seedu.classmate.commands;
 
 import seedu.classmate.ClassMateException;
-import seedu.classmate.Display;
 import seedu.classmate.Major;
 import seedu.classmate.Specialisation;
 import seedu.classmate.SpecialisationOverview;
+import seedu.classmate.Ui;
 
 /**
  * Represents a command that displays detailed information about a specific CEG specialisation.
@@ -26,12 +26,12 @@ public class SpecialisationInfoCommand extends Command {
      * Displays information about the specified specialisation.
      *
      * @param major The {@code Major} instance (unused).
-     * @param display The {@code Display} handler (unused).
+     * @param ui The {@code Ui} handler (unused).
      * @param specialisationOverview The overview containing all specialisations.
      * @throws ClassMateException If the input is empty or not a valid number (1 to 5).
      */
     @Override
-    public void executeCommand(Major major, Display display, SpecialisationOverview specialisationOverview) {
+    public void executeCommand(Major major, Ui ui, SpecialisationOverview specialisationOverview) {
 
         if (args.isEmpty()) {
             throw new ClassMateException("Please provide a specialisation index: viewSpecialisationInfo <INDEX>");

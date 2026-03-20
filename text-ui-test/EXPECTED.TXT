@@ -7,6 +7,7 @@ Welcome to
 
 I'm your CEG course planning assistant!
 Type 'help' to see available commands.
+______________________________
 Available commands:
 - help: Viewing help
 - viewGradReqs: Print CEG graduation requirements
@@ -15,7 +16,10 @@ Available commands:
 - queryModuleAvailability MODULE_CODE SEM<1/2>: Check if a module MODULE_CODE is available in a certain semester SEM<1/2>
 - viewSpecialisations: View list of all CEG specialisations
 - viewSpecialisationInfo SPECIALISATION_INDEX: View specific requirements for a specialisation. See viewSpecialisation for index
-Unknown command. Enter 'help' for available commands.
+______________________________
+______________________________
+    (!) ERROR: Unknown command. Enter 'help' for available commands.
+______________________________
 Here is a list of modules required to fulfill CEG Major: MA1511 Engineering Calculus
 MA1512 Differential Equations for Engineering
 MA1508E Linear Algebra for Engineering
@@ -35,3 +39,4 @@ CG3201 Machine Learning and Deep Learning
 CG3207 Computer Architecture
 EE4204 Computer Networks
 Goodbye! Happy course planning!
+______________________________

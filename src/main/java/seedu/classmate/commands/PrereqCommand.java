@@ -1,10 +1,10 @@
 package seedu.classmate.commands;
 
 import seedu.classmate.ClassMateException;
-import seedu.classmate.Display;
 import seedu.classmate.Major;
 import seedu.classmate.Module;
 import seedu.classmate.SpecialisationOverview;
+import seedu.classmate.Ui;
 
 /**
  * Represents a command that displays the prerequisite tree of a specified module.
@@ -26,12 +26,12 @@ public class PrereqCommand extends Command{
      * Displays the prerequisite tree of the specified module.
      *
      * @param major The {@code Major} instance containing module data.
-     * @param display The {@code Display} handler (unused).
+     * @param ui The {@code Ui} handler (unused).
      * @param specialisationOverview The overview of specialisations (unused).
      * @throws ClassMateException If no module code is provided.
      */
     @Override
-    public void executeCommand(Major major, Display display, SpecialisationOverview specialisationOverview) {
+    public void executeCommand(Major major, Ui ui, SpecialisationOverview specialisationOverview) {
         if (moduleCode.isEmpty()) {
             throw new ClassMateException("Please provide a module code: viewPrereqs <MODULE_CODE>");
         }

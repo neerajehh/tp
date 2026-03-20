@@ -1,10 +1,10 @@
 package seedu.classmate.commands;
 
 import seedu.classmate.ClassMateException;
-import seedu.classmate.Display;
 import seedu.classmate.Major;
 import seedu.classmate.Module;
 import seedu.classmate.SpecialisationOverview;
+import seedu.classmate.Ui;
 
 /**
  * Represents a command that checks the availability of a module in a given semester.
@@ -36,12 +36,12 @@ public class QueryModuleAvailabilityCommand extends Command {
      * Checks and displays the availability of the specified module in a given semester.
      *
      * @param major The {@code Major} instance containing module data.
-     * @param display The {@code Display} handler (unused).
+     * @param display The {@code Ui} handler (unused).
      * @param specialisationOverview The overview of specialisations (unused).
      * @throws ClassMateException If the module is not found.
      */
     @Override
-    public void executeCommand(Major major, Display display, SpecialisationOverview specialisationOverview) {
+    public void executeCommand(Major major, Ui display, SpecialisationOverview specialisationOverview) {
 
         Module module = major.findModule(moduleCode);
 

@@ -1,10 +1,10 @@
 package seedu.classmate.commands;
 
 import seedu.classmate.ClassMateException;
-import seedu.classmate.Display;
 import seedu.classmate.Major;
 import seedu.classmate.Module;
 import seedu.classmate.SpecialisationOverview;
+import seedu.classmate.Ui;
 
 /**
  * Represents a command that displays information about a specified module.
@@ -26,12 +26,12 @@ public class PrintModuleInfoCommand extends Command {
      * Displays detailed information of the specified module.
      *
      * @param major The {@code Major} instance containing module data.
-     * @param display The {@code Display} handler (unused).
+     * @param ui The {@code Ui} handler (unused).
      * @param specialisationOverview The overview of all specialisations (unused).
      * @throws ClassMateException If the module code is empty or the module is not found.
      */
     @Override
-    public void executeCommand(Major major, Display display, SpecialisationOverview specialisationOverview) {
+    public void executeCommand(Major major, Ui ui, SpecialisationOverview specialisationOverview) {
         if (moduleCode.isEmpty()) {
             throw new ClassMateException("Please provide a module code!");
         }
