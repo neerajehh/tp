@@ -29,7 +29,20 @@ The ***Sequence Diagram*** shows how the components interact with each other for
 <Hardcoded, used classes Module, Major, Ui>
 
 ### **View Module Prerequisite Trees**
+<Uses `CommandManager`, `PrereqCommand`, `Module`, `Major`, `Ui`>
 
+The `viewPrereqs` feature displays a module’s prerequisite structure as a tree.
+
+**Execution Flow:**
+- User inputs `viewPrereqs`.
+- `Parser` and `CommandManager` create a `PrereqCommand`.
+- `PrereqCommand` calls `module.printPrereqTree(major)`.
+- Output is formatted and displayed via `Ui`.
+
+**Core Logic:**
+- `printPrereqTree` initialises the process and optionally lists parent modules.
+- `printPrereqTreeHelper` recursively builds the tree using prefixes and symbols (`├──`, `└──`) to represent hierarchy.
+- If a prerequisite module exists, recursion continues; otherwise, it is printed as a leaf.
 
 ### Specialisation
 
