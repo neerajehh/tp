@@ -42,6 +42,7 @@ public class Ui {
                 "Check if a module MODULE_CODE is available in a certain semester SEM<1/2>\n" +
                 "- viewSpecialisations: " +
                 "View list of all CEG specialisations\n" +
+                
                 "- checkPrereqStatus MODULE_CODE: Check prereq completion status\n" +
                 "- viewSpecialisationInfo SPECIALISATION_INDEX: " +
                 "View specific requirements for a specialisation. See viewSpecialisation for index");

@@ -1,18 +1,19 @@
 package seedu.classmate;
 
 import seedu.classmate.commands.ByeCommand;
+import seedu.classmate.commands.CheckPrereqStatusCommand;
 import seedu.classmate.commands.Command;
 import seedu.classmate.commands.HelpCommand;
+import seedu.classmate.commands.MarkDoneCommand;
 import seedu.classmate.commands.PrereqCommand;
 import seedu.classmate.commands.PrintModuleInfoCommand;
 import seedu.classmate.commands.QueryModuleAvailabilityCommand;
 import seedu.classmate.commands.SpecialisationInfoCommand;
-import seedu.classmate.commands.ViewGradReqsCommand;
-import seedu.classmate.commands.MarkDoneCommand;
 import seedu.classmate.commands.ViewDoneCommand;
-import java.util.ArrayList;
-import seedu.classmate.commands.CheckPrereqStatusCommand;
+import seedu.classmate.commands.ViewGradReqsCommand;
 import seedu.classmate.commands.ViewSpecialisationsCommand;
+
+import java.util.ArrayList;
 
 public class CommandManager {
 
@@ -46,14 +47,15 @@ public class CommandManager {
         case "markdone":
             return new MarkDoneCommand(arguments, completedModules, storage);
 
-        case "checkprereqstatus":
-            return new CheckPrereqStatusCommand(arguments, completedModules);
-
         case "viewdone":
             return new ViewDoneCommand(completedModules);
+
+        case "checkprereqstatus":
+            return new CheckPrereqStatusCommand(arguments, completedModules);
 
         default:
             throw new ClassMateException("Unknown command. Enter 'help' for available commands.");
         }
     }
 }
+
