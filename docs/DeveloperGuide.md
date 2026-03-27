@@ -16,6 +16,7 @@ The ***Architecture Diagram*** explains the high-level design of the App.
 * `Command`: An abstract base class for all instructions (e.g., `viewGradReqsCommand`, `ByeCommand`). Each subclass encapsulates the specific behavior of a user action and signals back to `ClassMate` if the app should terminate via the `isExit` flag.
 * `Ui`: Handles all interactions with the user. It is the only class that contains `System.out.println` calls, ensuring a consistent look and feel across the application.
 * `UserProfile`: Holds the state of the user’s academic progress, including their specialisation and modules taken.
+* `ModulesLoader`: Loads the module information for major and specialisation modules to be used.
 * `Storage`: Responsible for reading from and writing data to the hard disk, ensuring user data is saved between sessions. 
 
 ### Interaction between architecture components:
@@ -25,6 +26,14 @@ The ***Sequence Diagram*** shows how the components interact with each other for
 
 
 ## **Implementation of Features**
+
+### **Viewing Module Information**
+<Uses `Parser`, `ViewModuleInfoCommand`, `Module`, `Major`, `SpecialisationOverview`, `Ui`>
+
+The `viewModuleInfo` feature displays a module's code, name, units, semester, prerequisites and whether the user 
+can take it.
+
+
 ### **Viewing Graduation Requirements** 
 <Hardcoded, used classes Module, Major, Ui>
 
@@ -63,18 +72,19 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Appendix: User Stories
 
-| Priority | As a ...                                  | I want to ...                                | So that I can ...                                                     |
-| -------- | ----------------------------------------- | -------------------------------------------- | --------------------------------------------------------------------- |
-| `* * *`  | new user                                  | view usage instructions                      | refer to instructions when I forget how to use the App                |
-| `* * *`  | student                                   | view an overview of graduation requirements  | understand the milestones I need to reach to graduate                 |
-| `* * *`  | student                                   | view the prerequisite tree for a module      | identify the sequence of modules required for my target course        |
-| `* * *`  | student                                   | view if a module is offered in a semester    | plan my timetable based on module availability                        |
-| `* * *`  | student looking to specialise             | view modules tied to specific specialisations| explore potential academic tracks and take necessary prerequisites    |
-| `* *`    | recurring user                            | save my profile and academic history         | avoid the repetitive task of re-entering completed modules            |
-| `* *`    | user who wants a visual overview          | view a progress tracker for my degree        | stay motivated and ensure I am on track for graduation                |
-| `* *`    | student                                   | view modules using keywords                  | find relevant courses even if I do not know the exact module code     |
-| `*`      | user wanting non-core modules             | view non-core modules using keywords         | find interesting electives outside of my primary major                |
-| `*`      | user easily overwhelmed by info           | view modules filtered by level or subject    | narrow down my choices to suit my current year of study               |
+| Priority | As a ...                                  | I want to ...                                 | So that I can ...                                                                 |
+| -------- | ----------------------------------------- |-----------------------------------------------|-----------------------------------------------------------------------------------|
+| `* * *`  | new user                                  | view usage instructions                       | refer to instructions when I forget how to use the App                            |
+| `* * *`  | student                                   | view an overview of graduation requirements   | understand the milestones I need to reach to graduate                             |
+| `* * *`  | student                                   | view the prerequisite tree for a module       | identify the sequence of modules required for my target course                    |
+| `* * *`  | student                                   | view if a module is offered in a semester     | plan my timetable based on module availability                                    |
+| `* * *`  | student looking to specialise             | view modules tied to specific specialisations | explore potential academic tracks and take necessary prerequisites                |
+| `* * *`  | student looking to specialise             | view overview of a specialisation             | understand what the specialisation is about to see if it algins with my interests |
+| `* *`    | recurring user                            | save my profile and academic history          | avoid the repetitive task of re-entering completed modules                        |
+| `* *`    | user who wants a visual overview          | view a progress tracker for my degree         | stay motivated and ensure I am on track for graduation                            |
+| `* *`    | student                                   | view modules using keywords                   | find relevant courses even if I do not know the exact module code                 |
+| `*`      | user wanting non-core modules             | view non-core modules using keywords          | find interesting electives outside of my primary major                            |
+| `*`      | user easily overwhelmed by info           | view modules filtered by level or subject     | narrow down my choices to suit my current year of study                           |
 
 
 

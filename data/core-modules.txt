@@ -1,6 +1,7 @@
 Engineering Calculus,MA1511,1/2,None
 Differential Equations for Engineering,MA1512,1/2,None
 Linear Algebra for Engineering,MA1508E,2,None
+Programming Methodology,CS1010,1/2,None
 Engineering Professionalism,EG2401A,1/2,None
 Engineering Principles and Practice I,CG1111A,1,None
 Engineering Principles and Practice II,CG2111A,1,CG1111A|CS1010
