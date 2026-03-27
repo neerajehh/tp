@@ -1,5 +1,6 @@
 package seedu.classmate;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import seedu.classmate.commands.CheckPrereqStatusCommand;
 
@@ -17,6 +18,25 @@ public class CheckPrereqStatusCommandTest {
     private Major major = new Major(new ArrayList<>());
     private SpecialisationOverview specOverview = new SpecialisationOverview(new HashMap<>());
     private Ui ui = new Ui();
+
+    @BeforeEach
+    public void setUp() {
+        ArrayList<Module> modules = new ArrayList<>();
+
+        Module ma1511 = new Module("MA1511", "Engineering Calculus");
+        Module cs2113 = new Module("CS2113", "Software Engineering & Object-Oriented Programming");
+        cs2113.addPrerequisite("CS2040C");
+
+        Module cg2271 = new Module("CG2271", "Real-time Operating System");
+        cg2271.addPrerequisite("CS2040C");
+
+        modules.add(ma1511);
+        modules.add(cs2113);
+        modules.add(cg2271);
+
+        major = new Major(modules);
+    }
+
 
     @Test
     void execute_emptyModuleCode_throwsException() {

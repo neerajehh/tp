@@ -14,6 +14,8 @@ import seedu.classmate.commands.ViewGradReqsCommand;
 import seedu.classmate.commands.ViewSpecialisationsCommand;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -27,6 +29,9 @@ public class ParserTest {
 
     private final ArrayList<String> completedModules = new ArrayList<>();
     private final Storage storage = new Storage();
+    private final Ui ui = new Ui();
+    private final Major major = new Major(new ArrayList<>());
+    private final SpecialisationOverview specOverview = new SpecialisationOverview(new HashMap<>());
 
     @Test
     public void testHelpCommand() {
@@ -66,8 +71,10 @@ public class ParserTest {
     @Test
     public void parseValidCommandWithInvalidArgument_throwsException() {
         String userInput = "viewprereqs Cs211";
+        Command command = Parser.parse(userInput, completedModules, storage);
+
         ClassMateException exception = assertThrows(ClassMateException.class,
-                () -> Parser.parse(userInput, completedModules, storage));
+                () -> command.executeCommand(major, ui, specOverview));
         assertEquals("Module CS211 not found", exception.getMessage(),
                 "Error message informs the user that the module is not found");
     }

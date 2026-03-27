@@ -43,8 +43,7 @@ public class PrereqCommand extends Command{
         }
 
         if (module == null) {
-            System.out.println("Module " + moduleCode + " not found");
-            return;
+            throw new ClassMateException("Module " + moduleCode + " not found");
         }
 
         assert module != null;
