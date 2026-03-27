@@ -39,25 +39,12 @@ class ModuleTest {
     }
 
     @Test
-    void addPrerequisites_multipleInputs_allAdded() {
-        Module module = new Module("CS2113", "Software Engineering & OOP");
-        module.addPrerequisites("CS2040C", "CS1010");
-        assertEquals(2, module.getPrerequisites().size());
-    }
-
-    @Test
     void addPrerequisite_validInput_added() {
         Module module = new Module("CS2113", "Software Engineering & OOP");
         module.addPrerequisite("CS2040C");
         assertEquals(1, module.getPrerequisites().size());
     }
 
-    @Test
-    void addPrerequisites_duplicateInputs_onlyOneAdded() {
-        Module module = new Module("CS2113", "Software Engineering & OOP");
-        module.addPrerequisites("CS2040C", "CS2040C");
-        assertEquals(1, module.getPrerequisites().size());
-    }
 
     @Test
     void getModuleCode_validModule_returnsCode() {

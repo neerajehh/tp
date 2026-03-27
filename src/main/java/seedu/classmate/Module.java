@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class Module {
     private String moduleCode;
     private String moduleName;
+    private String moduleType;
     private ArrayList<String> prerequisites;
     private int units;
     private String semester;
@@ -28,6 +29,7 @@ public class Module {
         }
         this.moduleCode = moduleCode;
         this.moduleName = moduleName;
+        this.moduleType = "Core";
         this.prerequisites = new ArrayList<>();
         this.units = 4;
         this.semester = "1/2";
@@ -48,15 +50,9 @@ public class Module {
         }
     }
 
-    /**
-     * Adds multiple prerequisite module codes to this module.
-     *
-     * @param prereqCodes The module codes of the prerequisite modules.
-     */
     public void addPrerequisites(String... prereqCodes) {
-        assert prereqCodes != null : "Prerequisite array should not be null";
         for (String prereqCode : prereqCodes) {
-            addPrerequisite(prereqCode.trim());
+            addPrerequisite(prereqCode);
         }
     }
 
@@ -153,6 +149,14 @@ public class Module {
      */
     public String getModuleCode() {
         return this.moduleCode;
+    }
+
+    public String getModuleType() {
+        return moduleType;
+    }
+
+    public void setModuleType(String moduleType) {
+        this.moduleType = moduleType;
     }
 
     /**

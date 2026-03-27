@@ -64,6 +64,16 @@ public class ParserTest {
     }
 
     @Test
+    public void parseValidCommandWithInvalidArgument_throwsException() {
+        String userInput = "viewprereqs Cs211";
+        ClassMateException exception = assertThrows(ClassMateException.class,
+                () -> Parser.parse(userInput, completedModules, storage));
+        assertEquals("Module CS211 not found", exception.getMessage(),
+                "Error message informs the user that the module is not found");
+    }
+
+
+    @Test
     public void parseInvalidCommandWithMixedCase() {
         String userInput = "aCommand Cs2113";
         ClassMateException exception = assertThrows(ClassMateException.class,

@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import seedu.classmate.commands.CheckPrereqStatusCommand;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
@@ -12,8 +14,8 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
  */
 public class CheckPrereqStatusCommandTest {
 
-    private Major major = new Major();
-    private SpecialisationOverview specOverview = new SpecialisationOverview();
+    private Major major = new Major(new ArrayList<>());
+    private SpecialisationOverview specOverview = new SpecialisationOverview(new HashMap<>());
     private Ui ui = new Ui();
 
     @Test
