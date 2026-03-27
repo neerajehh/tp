@@ -84,6 +84,24 @@ public class SpecialisationOverview {
         return specs.get(specialisationNumber - 1);
     }
 
+    public Module findSpecialisationModule(String moduleCode) {
+        for (Specialisation spec : specs) {
+            for (Module module : spec.getSpecialisationCoreModules()) {
+                if (module.getModuleCode().equals(moduleCode)) {
+                    return module;
+                }
+            }
+
+            for (Module module : spec.getSpecialisationElectiveModules()) {
+                if (module.getModuleCode().equals(moduleCode)) {
+                    return module;
+                }
+            }
+        }
+
+        return null;
+    }
+
     public ArrayList<Specialisation> getAllSpecialisations() {
         return specs;
     }

@@ -28,7 +28,7 @@ public class ModulesLoader {
 
         try {
             Scanner scanner = new Scanner(file);
-            while (scanner.hasNext()) {
+            while (scanner.hasNextLine()) {
                 String line = scanner.nextLine().trim();
 
                 if (line.isEmpty()) {
@@ -67,7 +67,7 @@ public class ModulesLoader {
 
         try {
             Scanner scanner = new Scanner(file);
-            while (scanner.hasNext()) {
+            while (scanner.hasNextLine()) {
                 String line = scanner.nextLine().trim();
 
                 if (line.isEmpty()) {

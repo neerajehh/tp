@@ -39,7 +39,11 @@ public class PrereqCommand extends Command{
         Module module = major.findModule(moduleCode);
 
         if (module == null) {
-            System.out.println("Module " + moduleCode + " not found.");
+            module = specialisationOverview.findSpecialisationModule(moduleCode);
+        }
+
+        if (module == null) {
+            System.out.println("Module " + moduleCode + " not found");
             return;
         }
 
