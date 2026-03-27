@@ -16,6 +16,8 @@ import seedu.classmate.commands.ViewSpecialisationsCommand;
 import seedu.classmate.commands.CheckProfileCommand;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -29,7 +31,10 @@ public class ParserTest {
 
     private final ArrayList<String> completedModules = new ArrayList<>();
     private final Storage storage = new Storage();
+    private final Ui ui = new Ui();
     private final UserProfile userProfile = new UserProfile();
+    private final Major major = new Major(new ArrayList<>());
+    private final SpecialisationOverview specOverview = new SpecialisationOverview(new HashMap<>());
 
     @Test
     public void testHelpCommand() {
@@ -65,6 +70,18 @@ public class ParserTest {
         Command output = Parser.parse(userInput, completedModules, storage, userProfile);
         assertInstanceOf(PrereqCommand.class, output, "Output is of type PrereqCommand");
     }
+
+    @Test
+    public void parseValidCommandWithInvalidArgument_throwsException() {
+        String userInput = "viewprereqs Cs211";
+        Command command = Parser.parse(userInput, completedModules, storage, userProfile);
+
+        ClassMateException exception = assertThrows(ClassMateException.class,
+                () -> command.executeCommand(major, ui, specOverview));
+        assertEquals("Module CS211 not found", exception.getMessage(),
+                "Error message informs the user that the module is not found");
+    }
+
 
     @Test
     public void parseInvalidCommandWithMixedCase() {

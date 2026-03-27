@@ -1,7 +1,6 @@
 package seedu.classmate;
 
 import seedu.classmate.commands.ByeCommand;
-import seedu.classmate.commands.CheckPrereqStatusCommand;
 import seedu.classmate.commands.Command;
 import seedu.classmate.commands.HelpCommand;
 import seedu.classmate.commands.MarkDoneCommand;
@@ -67,4 +66,3 @@ public class CommandManager {
         }
     }
 }
-
