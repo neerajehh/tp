@@ -15,7 +15,7 @@ public class ClassMate {
      * Main entry-point for the java.classmate.Classmate application.
      */
     public static void main(String[] args) {
-        modulesLoader.ensureDataFilesExist();
+        //modulesLoader.ensureDataFilesExist();
         ArrayList<Module> coreModulesList = modulesLoader.loadCoreModules();
         HashMap<String, ArrayList<Module>> specialisationMap = modulesLoader.loadSpecialisationModules();
 
