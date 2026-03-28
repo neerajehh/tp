@@ -1,10 +1,8 @@
 package seedu.classmate;
 
-import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.io.FileNotFoundException;
 import java.util.HashMap;
 
 public class ModulesLoader {
@@ -12,18 +10,6 @@ public class ModulesLoader {
     private static final String SPECIALISATION_MODULES_PATH = "data/specialisation-modules.txt";
     private static final int NUMBER_OF_TOKENS_IN_CORE_MODULE_FILE_LINE = 4;
     private static final int NUMBER_OF_TOKENS_IN_SPECIALISATION_MODULE_FILE_LINE = 6;
-
-//    public void ensureDataFilesExist() throws ClassMateException {
-//        File coreModulesFile = new File(CORE_MODULES_PATH);
-//        File coreModulesDirectory = coreModulesFile.getParentFile();
-//        File specialisationModulesFile = new File(SPECIALISATION_MODULES_PATH);
-//        File specialisationModulesDirectory = specialisationModulesFile.getParentFile();
-//
-//        if ((coreModulesDirectory != null && !coreModulesDirectory.exists()) ||
-//                (specialisationModulesDirectory != null && !specialisationModulesDirectory.exists())) {
-//            throw new ClassMateException("The core modules and/or specialisation modules files do not exist");
-//        }
-//    }
 
     public ArrayList<Module> loadCoreModules() throws ClassMateException {
         ArrayList<Module> coreModulesArrayList = new ArrayList<>();
