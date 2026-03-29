@@ -1,4 +1,5 @@
 package seedu.classmate.commands;
+// @@author neerajehh
 
 import seedu.classmate.ClassMateException;
 import seedu.classmate.Major;
@@ -45,3 +46,4 @@ public class PrintModuleInfoCommand extends Command {
         System.out.println(module.printInfo());
     }
 }
+// @@author
