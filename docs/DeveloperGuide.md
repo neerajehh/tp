@@ -7,8 +7,7 @@ Refer to the guide [_Getting started_](link).
 
 ## **Design**
 ### Architecture
-The ***Architecture Diagram*** explains the high-level design of the App.
-[TODO: paste uml class diagram]
+The architecture of ClassMate is kept simple as all components reside in a single package. The main components are described in the Components section below.
 
 ### Components:
 * `ClassMate`: Initialises other components and houses the `main` execution loop.
@@ -22,7 +21,20 @@ The ***Architecture Diagram*** explains the high-level design of the App.
 ### Interaction between architecture components:
 The ***Sequence Diagram*** shows how the components interact with each other for the scenario when the user issues the command `viewPrereqs`
 
-[TODO: paste uml sequence diagram]
+```
+User      ClassMate    Parser   CommandManager  PrereqCommand  Major  SpecOvw
+ |            |           |            |              |           |      |
+ |--viewPrereqs CS2113---->           |              |           |      |
+ |            |--parse(input)-------->|              |           |      |
+ |            |           |--createCommand()-------->|           |      |
+ |            |           |            |<--PrereqCmd-------------|      |
+ |            |--executeCommand(...)---------------->|           |      |
+ |            |           |            |             |--findModule(code)>|
+ |            |           |            |             |<--module----------|  [if null: also checks SpecOvw]
+ |            |           |            |             |--printPrereqTree(major)
+ |            |           |            |             |<--tree string-----|
+ |<--prints prereq tree---|            |             |           |      |
+```
 
 
 ## **Implementation of Features**
