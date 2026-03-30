@@ -1,5 +1,5 @@
 ## **Acknowledgements**
-*list of sources of all reused/adapted ideas, code, documentation and third party libraries with links to original source
+This project was built from scratch by the W11-4 team. The command structure was inspired by the AddressBook-Level3 project by SE-EDU (https://se-education.org). No third-party libraries were used beyond the Java standard library and JUnit 5 for testing.
 
 ## **Setup and Getting started**
 Refer to the guide [_Getting started_](link).
