@@ -75,7 +75,7 @@ public class ModulesLoader {
     /**
      * Load specialisation-modules.txt file from storage and parse each line into 6 tokens, adding them to a HashMap.
      *
-     * @return A HasMap where the keys are the specialisation names and values are ArrayList of {@code Module} objects
+     * @return A HashMap where the keys are the specialisation names and values are ArrayList of {@code Module} objects
      *         representing the modules that are within a specialisation.
      *
      * @throws ClassMateException If there is an error in loading the file or breaking a line into tokens.
