@@ -1,0 +1,36 @@
+@startuml
+actor User
+participant ClassMate
+participant Parser
+participant CommandManager
+participant Command
+
+User -> ClassMate : enters command text
+ClassMate -> Parser : parse(input, completedModules,\nstorage, userProfile)
+activate Parser
+
+Parser -> Parser : trim and validate input
+alt input is empty
+    Parser --> ClassMate : throw ClassMateException
+else input is valid
+    Parser -> Parser : split command word and arguments
+    Parser -> CommandManager : createCommand(commandWord,\narguments, completedModules,\nstorage, userProfile)
+    activate CommandManager
+
+    alt command word is recognised
+        CommandManager --> Parser : Command object
+    else unknown command
+        CommandManager --> Parser : throw ClassMateException
+    end
+
+    deactivate CommandManager
+    Parser --> ClassMate : Command object
+end
+
+deactivate Parser
+
+ClassMate -> Command : executeCommand(major, ui,\nspecialisationOverview)
+activate Command
+Command --> ClassMate : result / update state
+deactivate Command
+@enduml

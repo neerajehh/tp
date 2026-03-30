@@ -37,6 +37,56 @@ User      ClassMate    Parser   CommandManager  PrereqCommand  Major  SpecOvw
  |            |           |            |             |<--tree string-----|
  |<--prints prereq tree---|            |             |           |      |
 ```
+1. The user enters the command `viewPrereqs CS2113`.
+2. 'ClassMate' receives the input and passes it to the parser.
+3. The parser interprets the command word and creates the corresponding command object.
+4. 'ClassMate' executes the command object.
+5. The command looks up the requested module in the main module data.
+6. If the module is not found there, the command checks the specialisation overview module data.
+7. Once the module is found, the command generates the prerequisite tree using the module data.
+8. The final prerequisite tree is returned and displayed to the user through the UI.
+
+#### Design considerations
+- The command pattern is used to ensure user action is encapsulated in its own command class, keeping command-specific logic separate from input parsing and applicationc ontrol flow.
+- The UI is responsible only for presentation. It does not participate in the generation of the prerequisite tree.
+- The module lookup is separted from output formatting, making the feature easier to maintain and extend.
+- If the requested module cannot be found, the command should report an error instead of generating the prerequisite tree.
+
+### UI Component
+The UI component is responsible for displaying all user-facing text output in ClassMate to the user.
+It displays the welcome message, help information, error messages, exit message, and formatted results for feature commands.
+
+The UI acts purely as a presentation layer and contains no application logic.
+It ensures that all output is displayed in a consistent and readable format.
+This design follows the Single Responsibility Principle and makes the application easier to maintain. 
+Changes to wording, formatting, or layout can be made in one place without affecting the rest of the system.
+
+### Parser and CommandManager Component
+The 'Parser' and 'CommandManager' components jointly form the command-processing layer of ClassMate.
+'Parser' decomposes the raw user input into a command word and arguments, while the 'CommandManager' instantiates the corresponding command object.
+
+This design keeps command recognition separate from command execution. Each command is represented by its own class, allowing the application to be modular and easier to extend.
+The components also centralise error handling for invalid commands. Empty commands and unrecognised command words are rejected early, ensuring that only valid command objects are passed on for execution.
+
+This sequence diagram illustrates how ClassMate processes a user command from raw input to an executable command object.
+![Parser Sequence Diagram](resources/ParserSequence.png)
+1. The user enters a command in the command line interface (CLI).
+2. 'ClassMate' passed the raw input to 'Parser'.
+3. 'Parser' trims the input and checks whether it is empty.
+   - If the input is empty, a 'ClassMateException' is thrown immediately.
+4. If the input is valid, 'Parser' extracts the command word and arguments.
+5. 'Parser' passes the command word and arguments to 'CommandManager'.
+6. 'CommandManager' creates the corresponding command object for the recognised command word.
+   - If the command word is unrecognised, a 'ClassMateException' is thrown.
+7. The created command object is returned to 'ClassMate'.
+8. 'ClassMate' executes the command using the common command interface.
+9. The command performs its action and may update application state or display results.
+
+#### Design considerations
+- The 'Parser' is responsible only for preprocessing and validation of raw input.
+- The 'CommandManager' centralises command creation, ensuring command selection logic is kept in one place.
+- Each concrete command encapsulates its own behavior, ensuring the system is modular and easy to extend.
+- Error handling is performed early so invalid input does not propagate further into the application.
 
 
 ## **Implementation of Features**
