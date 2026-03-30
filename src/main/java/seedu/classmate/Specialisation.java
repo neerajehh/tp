@@ -76,7 +76,7 @@ public class Specialisation {
     /**
      * Returns the list of core modules required for this specialisation.
      *
-     * @return An {@code ArrayList} containing the core modules.
+     * @return The description of the specialisation.
      */
     public String getSpecialisationDescription() {
         return specialisationDescription;
@@ -98,6 +98,15 @@ public class Specialisation {
      */
     public ArrayList<Module> getSpecialisationElectiveModules() {
         return specialisationElectiveModules;
+    }
+
+    /**
+     * Returns the requirement that needs to be satisfied to have completed a specialisation
+     *
+     * @return The specialisation requirement.
+     */
+    public String getElectiveRequirements() {
+        return electiveRequirements;
     }
 
     /**
@@ -137,28 +146,28 @@ public class Specialisation {
         switch (this.specialisationName) {
         case "Internet of Things":
             this.specialisationDescription = internetOfThingsDescription;
-            this.electiveRequirements = "Choose any two courses, or totaling at least 8 units, from the list below:";
+            this.electiveRequirements = "Choose any two courses, or totaling at least 8 units, from the list below";
             break;
 
         case "Advanced Electronics":
             this.specialisationDescription = advancedElectronicsDescription;
-            this.electiveRequirements = "Choose any three courses, or totaling at least 12 units, from the list below:";
+            this.electiveRequirements = "Choose any three courses, or totaling at least 12 units, from the list below";
             break;
 
         case "Space Technology":
             this.specialisationDescription = spaceTechDescription;
-            this.electiveRequirements = "Choose any two courses, or totaling at least 8 units, from the list below:";
+            this.electiveRequirements = "Choose any two courses, or totaling at least 8 units, from the list below";
             break;
 
         case "Industry 4.0":
             this.specialisationDescription = industryDescription;
-            this.electiveRequirements = "Choose any three courses, or totaling at least 12 units, from the list below:";
+            this.electiveRequirements = "Choose any three courses, or totaling at least 12 units, from the list below";
             break;
 
         case "Robotics":
             this.specialisationDescription = roboticsDescription;
             this.electiveRequirements = "12 Units from electives AND a Capstone (8 Units) in Robotics OR, 20 Units " +
-                    "from electives:";
+                    "from the list below";
             break;
 
         default:
