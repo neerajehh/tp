@@ -62,7 +62,7 @@ public class SpecialisationOverview {
 
         System.out.println();
 
-        System.out.println("Elective Modules:");
+        System.out.println("Elective Modules " + "(" + selectedSpecialisation.getElectiveRequirements() + "):");
         for (Module electiveModule : selectedSpecialisation.getSpecialisationElectiveModules()) {
             System.out.println(electiveModule.getModuleCode() + " : " + electiveModule.getModuleName());
         }
