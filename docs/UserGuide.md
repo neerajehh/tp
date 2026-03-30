@@ -4,6 +4,7 @@ ClassMate is a CLI-based chatbot that assists NUS UG CEG students with timetable
 
 * [Quick Start](#quick-start)
 * [Features](#features)
+  * [Viewing help: `help`](#Help on application usage: `help`)
   * [Viewing CEG graduation requirements: `viewGradReqs`](#viewing-major-requirements-viewgradreqs)
   * [Viewing module info: `viewModuleInfo`](#viewing-module-info-viewmoduleinfo)
   * [Checking module availability: `queryModuleAvailability`](#checking-module-availability-querymoduleavailability)
@@ -30,6 +31,23 @@ ClassMate is a CLI-based chatbot that assists NUS UG CEG students with timetable
 * Parameters can be in any order.
 
 </div>
+
+### Help on application usage: `help`
+
+Shows a list of valid commands and their purpose in point form
+
+Format: `help`
+
+Examples:
+* `help`
+
+Expected output:
+``` 
+Available commands:
+- help: Viewing help
+- viewGradReqs: Print CEG graduation requirements
+... Other commands
+```
 
 ### Viewing major requirements: `viewGradReqs`
 
@@ -127,9 +145,20 @@ Provides a list of available CEG specialisations.
 
 Format: `viewSpecialisations`
 
+Expected output:
+```
+List of all CEG Specialisations:
+1. Advanced Electronics
+2. Space Technolgy
+3. Industry 4.0
+4. Internet of Things
+5. Robotics
+Enter <viewSpecialisationInfo [index]> to know more about a specialisation.
+```
+
 ### Viewing specialisation info: `viewSpecialisationInfo`
 
-Provides an overview of the specialisation and the list of modules to take in order to fulfill said specialisation. Use `viewSpecialisations` to check the SPECIALISATION_INDEX.
+Provides a description of the specialisation, the elective modules fulfillment criteria and all the core and elective modules that can be taken to fulfill the specialisation. Use `viewSpecialisations` to get the SPECIALISATION_INDEX of the specialisation of interest.
 
 Format: `viewSpecialisationInfo SPECIALISATION_INDEX`
 

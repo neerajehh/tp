@@ -41,7 +41,7 @@ public class SpecialisationInfoCommand extends Command {
             int index = Integer.parseInt(args);
 
             Specialisation spec = specialisationOverview.getSpecialisationDetails(index);
-            specialisationOverview.displaySpecialisationDetails(spec);
+            ui.showSpecialisationDetails(spec);
 
         } catch (NumberFormatException e) {
             throw new ClassMateException("Specialisation index must be a number.");

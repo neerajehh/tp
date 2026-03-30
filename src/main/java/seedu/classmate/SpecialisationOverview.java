@@ -29,44 +29,12 @@ public class SpecialisationOverview {
     }
 
     /**
-     * Displays all available specialisations to the user.
+     * Getter for obtaining the list of specialisations.
      *
-     * Each specialisation is printed with a corresponding number that
-     * can be used by the user to select and view more details about a specific specialisation.
+     * @return The Array List of specialisations.
      */
-    public static void listAllSpecialisations() {
-        for (int specialisationIndex = 0; specialisationIndex < specs.size(); specialisationIndex++) {
-            System.out.println((specialisationIndex + 1) + ". "
-                    + specs.get(specialisationIndex).getSpecialisationName());
-        }
-        System.out.println("Enter <viewSpecialisationInfo [index]> " +
-                "to see more information regarding the selected specialisation.");
-    }
-
-    /**
-     * Displays detailed information about the selected specialisation.
-     *
-     * The information printed includes the specialisation name, description,
-     * core modules, and elective modules.
-     *
-     * @param selectedSpecialisation The specialisation whose details are to be displayed.
-     */
-    public void displaySpecialisationDetails(Specialisation selectedSpecialisation) {
-        System.out.println("Specialisation: " + selectedSpecialisation.getSpecialisationName() + "\n");
-
-        System.out.println("Description: " + selectedSpecialisation.getSpecialisationDescription() + "\n");
-
-        System.out.println("Core Modules:");
-        for (Module coreModule : selectedSpecialisation.getSpecialisationCoreModules()) {
-            System.out.println(coreModule.getModuleCode() + " : " + coreModule.getModuleName());
-        }
-
-        System.out.println();
-
-        System.out.println("Elective Modules:");
-        for (Module electiveModule : selectedSpecialisation.getSpecialisationElectiveModules()) {
-            System.out.println(electiveModule.getModuleCode() + " : " + electiveModule.getModuleName());
-        }
+    public ArrayList<Specialisation> getSpecialisations() {
+        return specs;
     }
 
     /**
@@ -101,9 +69,4 @@ public class SpecialisationOverview {
 
         return null;
     }
-
-    public ArrayList<Specialisation> getAllSpecialisations() {
-        return specs;
-    }
-
 }

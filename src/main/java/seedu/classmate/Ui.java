@@ -1,5 +1,7 @@
 package seedu.classmate;
 
+import java.util.ArrayList;
+
 /**
  * Handles all user interface interactions for the ClassMate application.
  * This class is responsible for displaying messages to the user.
@@ -64,6 +66,47 @@ public class Ui {
 
         printLine();
         System.out.println("    (!) ERROR: " + errorMessage);
+        printLine();
+    }
+
+    /**
+     * Displays all available specialisations to the user. Each specialisation is printed with a corresponding
+     * number that can be used by the user to select and view more details about a specific specialisation.
+     *
+     * @param specs The list of specialisations
+     */
+    public static void showAllSpecialisations(ArrayList<Specialisation> specs) {
+        printLine();
+        System.out.println("List of all CEG Specialisations:");
+        for (int specialisationIndex = 0; specialisationIndex < specs.size(); specialisationIndex++) {
+            System.out.println((specialisationIndex + 1) + ". "
+                    + specs.get(specialisationIndex).getSpecialisationName());
+        }
+        System.out.println("Enter <viewSpecialisationInfo [index]> to know more about a specialisation.");
+        printLine();
+    }
+
+    /**
+     * Retrieves the specialisation corresponding to the given number.
+     *
+     * @param selectedSpecialisation The {@code Specialisation} object representing the desired specialisation.
+     */
+    public void showSpecialisationDetails(Specialisation selectedSpecialisation) {
+        printLine();
+        System.out.println("Specialisation: " + selectedSpecialisation.getSpecialisationName() + "\n");
+        System.out.println("Description: " + selectedSpecialisation.getSpecialisationDescription() + "\n");
+
+        System.out.println("Core Modules:");
+        for (Module coreModule : selectedSpecialisation.getSpecialisationCoreModules()) {
+            System.out.println(coreModule.getModuleCode() + " : " + coreModule.getModuleName());
+        }
+
+        System.out.println();
+
+        System.out.println("Elective Modules " + "(" + selectedSpecialisation.getElectiveRequirements() + "):");
+        for (Module electiveModule : selectedSpecialisation.getSpecialisationElectiveModules()) {
+            System.out.println(electiveModule.getModuleCode() + " : " + electiveModule.getModuleName());
+        }
         printLine();
     }
 

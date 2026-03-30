@@ -18,7 +18,6 @@ public class ViewSpecialisationsCommand extends Command {
      */
     @Override
     public void executeCommand(Major major, Ui ui, SpecialisationOverview specialisationOverview) {
-        System.out.println("List of all CEG Specialisations:");
-        SpecialisationOverview.listAllSpecialisations();
+        ui.showAllSpecialisations(specialisationOverview.getSpecialisations());
     }
 }
