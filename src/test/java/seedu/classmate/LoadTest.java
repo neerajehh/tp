@@ -24,8 +24,7 @@ public class LoadTest {
         HashMap<String, ArrayList<Module>> specialisationModules = specialisationModulesLoader
                 .loadSpecialisationModules();
 
-        ArrayList<Module> iotModules =
-                specialisationModules.get("Internet of Things");
+        ArrayList<Module> iotModules = specialisationModules.get("Internet of Things");
         Module secondModule = iotModules.get(1);
         assertEquals("EE4211", secondModule.getModuleCode());
     }

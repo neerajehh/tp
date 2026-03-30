@@ -39,13 +39,6 @@ public class Major {
     }
 
     /**
-     * Initializes the list of core modules and their prerequisites for CEG major.
-     */
-    private void setupCEGModules() {
-
-    }
-
-    /**
      * Finds a module by its module code.
      *
      * @param code The module code to search for.
