@@ -67,7 +67,7 @@ The `viewPrereqs` feature displays a module’s prerequisite structure as a tree
 
 ### **Viewing Specialisations**
 
-<Uses `Parser`, `ViewSpecialisationsCommand`, `Ui`, `SpecialisationOverview`>
+<Uses `Parser`, `ViewSpecialisationsCommand`, `Ui`, `Specialisation`, `SpecialisationOverview`>
 
 The `viewSpecialisations` command displays the names of the specialisations and their corresponding indices.
 The user is suggested to enter `viewSpecialisationInfo SPECIALISATION_INDEX`, to know more about a particular 
@@ -77,16 +77,35 @@ specialisation.
 - User inputs `viewSpecialisations`
 - `Parser` identifies the command word and `CommandManager` creates an instance of `ViewSpecialisationsCommand`.
 - `ClassMate` calls the `executeCommand` method of the `ViewSpecialisationCommand` object, which calls the
-`listAllSpecialisations` method of the `SpecialisationOverview` class.
-- The `listAllSpecialisations` method iterates through the `ArrayList<Specialisation>` Array list and displays each 
+  `showAllSpecialisations` method of the `Ui` class.
+- The `showAllSpecialisations` method iterates through the `ArrayList<Specialisation>` Array list and displays each 
 specialisation and its index, in 1-based indexing order.
 
 **Core Logic:**
 - `SpecialisationOverview` is initialised once by `ClassMate` on application startup and is loaded with all the
 specialisation modules information by `ModulesLoader`.
-- 
 
+### **Viewing Specialisation Information**
 
+<Uses `Parser`, `SpecialisationInfoCommand`, `Ui`, `Specialisation`, SpecialisationOverview`>
+
+The `viewSpecialisationInfo` command allows the user to get more details about a particular specialisation. Details
+include the description, core modules, elective modules and elective module requirement.
+
+**Execution Flow:**
+- User inputs `viewSpecialisationInfo`
+- `Parser` identifies the command word and `CommandManager` creates an instance of `SpecialisationInfoCommand`.
+- `ClassMate` calls the `executeCommand` method of the `SpecialisationInfoCommand` object, which calls the
+  `getSpecialisationDetails` method of the `SpecialisationOverview` class, with an argument which is the specialisation
+  number that the user is interested in.
+- An object, `spec` of the `Specialisation` class is returned. `spec` is passed as an argument to the 
+  `showAllSpecialisations` method of the `Ui`. 
+- The specialisation name, description is displayed. Next, `getSpecialisationCoreModules` and 
+  `getSpecialisationElectiveModules` methods are called to obtain the details of the individual modules and displayed.
+
+**Core Logic:**
+- If the user provides a non-integer input or an integer that is out of the range 1 - 5, an exception is thrown to 
+  alert the user.
 
 
 ## **Appendix: Requirements**
