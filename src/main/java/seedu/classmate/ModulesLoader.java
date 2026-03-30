@@ -125,7 +125,7 @@ public class ModulesLoader {
 
             specialisationMap.get(specialisationName).add(module);
         }
-        
+
         scanner.close();
         return specialisationMap;
     }
