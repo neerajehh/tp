@@ -35,6 +35,8 @@ The user interacts with it using a CLI. It is written in Java.
      * Added more important information for the feature `viewSpecialisations`, to make it clearer
    * **Developer Guide:**
      * Added documentation for the features `viewSpecialisations` and `viewSpecialisationInfo`
+   * **UML Diagrams:**
+     * Created Sequence Diagrams for `viewSpecialisations` and `viewSpecialisationInfo` commands
 
 * **Contributions to team tasks:**
    * Made JavaDoc comments clearer for methods
