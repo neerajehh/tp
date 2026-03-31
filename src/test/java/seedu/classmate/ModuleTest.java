@@ -97,5 +97,20 @@ class ModuleTest {
         assertEquals(3, module.getPrerequisites().size(), "All three prerequisites should be added.");
         assertTrue(module.getPrerequisites().contains("CS2040C"));
     }
+
+    @Test
+    void checkAvailability_sem1Only_returnsYes() {
+        Module module = new Module("EE2026", "Digital Design");
+        module.setSemester("1");
+        String result = module.checkAvailability("sem1");
+        assertEquals("Yes, EE2026 is only available in Semester 1.", result);
+    }
+
+    @Test
+    void checkAvailability_invalidInput_returnsErrorMessage() {
+        Module module = new Module("CS2113", "Software Engineering");
+        String result = module.checkAvailability("summer");
+        assertEquals("Invalid semester. Please enter sem1 or sem2.", result);
+    }
 }
 
