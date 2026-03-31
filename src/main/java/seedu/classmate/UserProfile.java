@@ -63,6 +63,8 @@ public class UserProfile {
     }
 
     public ArrayList<String> getCompletedModules() {
+        this.completedModules.clear();
+        loadData();
         return completedModules;
     }
 }

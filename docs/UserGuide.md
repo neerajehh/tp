@@ -11,6 +11,7 @@ ClassMate is a CLI-based chatbot that assists NUS UG CEG students with timetable
   * [Viewing prerequisites: `viewPrereqs`](#viewing-prerequisites-viewprereqs)
   * [Marking a module as done: `markDone`](#marking-a-module-as-done-markdone)
   * [Viewing completed modules: `viewDone`](#viewing-completed-modules-viewdone)
+  * [Checking your academic profile: `checkprofile`](#checking-your-academic-profile-checkprofile)
   * [Checking prerequisite status: `checkPrereqStatus`](#checking-prerequisite-completion-status-checkprereqstatus)
   * [Viewing list of specialisations: `viewSpecialisations`](#viewing-list-of-specialisations-viewspecialisations)
   * [Viewing specialisation info: `viewSpecialisationInfo`](#viewing-specialisation-info-viewspecialisationinfo)
@@ -140,6 +141,24 @@ Completed modules:
 - CS2040C
 ```
 
+### Checking your academic profile: `checkprofile`
+
+Displays your current academic profile, including your selected specialisation and the list of modules you have completed.
+
+Format: `checkprofile`
+
+Expected output:
+```
+Your Academic Profile:
+______________________________
+Specialization: ROBOTICS
+Completed Modules:
+  [DONE] CS2040C
+  [DONE] CS2113
+______________________________
+Keep up the great work!
+```
+
 ### Viewing list of specialisations: `viewSpecialisations`
 
 Provides a list of available CEG specialisations.
@@ -179,6 +198,7 @@ Examples:
 | **Prerequisites** | `viewPrereqs MODULE_CODE` | `viewPrereqs CG2028` |
 | **Mark Done** | `markDone MODULE_CODE` | `markDone CS1010` |
 | **View Done** | `viewDone` | `viewDone` |
+| **Check Profile** | `checkprofile` | `checkprofile` |
 | **Check Prereq Status** | `checkPrereqStatus MODULE_CODE` | `checkPrereqStatus CS2113` |
 | **Specialisation List** | `viewSpecialisations` | `viewSpecialisations` |
 | **Specialisation Info** | `viewSpecialisationInfo SPECIALISATION_INDEX` | `viewSpecialisationInfo 2` |

@@ -55,7 +55,7 @@ public class CommandManager {
         case "checkprereqstatus":
             return new CheckPrereqStatusCommand(arguments, completedModules);
 
-        case "setspecialization":
+        case "setspecialisation":
             return new SetSpecializationCommand(arguments, userProfile);
 
         case "checkprofile":
