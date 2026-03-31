@@ -86,8 +86,26 @@ This sequence diagram illustrates how ClassMate processes a user command from ra
 - The 'Parser' is responsible only for preprocessing and validation of raw input.
 - The 'CommandManager' centralises command creation, ensuring command selection logic is kept in one place.
 - Each concrete command encapsulates its own behavior, ensuring the system is modular and easy to extend.
-- Error handling is performed early so invalid input does not propagate further into the application.
+- Error handling is performed early, so invalid input does not propagate further into the application.
 
+### Domain and Data Layer
+The domain/data layer stores and provides the relevant CEG data used by ClassMate.
+It consists of classes such as `Module`, `Major`, `Specialisation`, `SpecialisationOverview`, `UserProfile`.
+These classes are responsible for representing the module information, course structure, specialisation details, and user's academic progress respectively.
+They provide operations for querying module availability, prerequisite relationships, specialisation information, and completed modules.
+It also provides methods to retrieve and update user profile information, such as completed modules and prerequisites.
+
+#### Responsibility of key classes
+- `Module`: Represents an individual module with attributes like code, name, units, semester, prerequisites, and whether it is available for the user.
+- `Major`: Represents the CEG major with a list of core modules and specialisations, and supports module lookup within the major.
+- `Specialisation`: Represents a specialisation with its description and a list of core modules, elective modules, and elective requirements.
+- `SpecialisationOverview`: Manages the list of specialisations and provides access to specialisation details.
+- `UserProfile`: Represents the user's academic progress, including completed modules and selected specialisations.
+
+#### Design considerations
+- The domain layer is separated from command parsing and UI rendering to ensure Single Responsibility Principle.
+- Data classes provide reusable operations for multiple commands, thus avoiding duplicating logic.
+- This structure enables the application to be easily extended with new features and data types.
 
 ## **Implementation of Features**
 
