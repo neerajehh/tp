@@ -1,0 +1,30 @@
+@startuml
+actor User
+participant ClassMate
+participant Parser
+participant CommandManager
+participant CheckPrereqStatusCommand
+participant Major
+
+User -> ClassMate : enters checkPrereqStatus CS2113
+ClassMate -> Parser : parse(input, completedModules,\nstorage, userProfile)
+activate Parser
+Parser -> CommandManager : createCommand("checkprereqstatus",\n"CS2113", completedModules,\nstorage, userProfile)
+activate CommandManager
+CommandManager --> Parser : CheckPrereqStatusCommand
+deactivate CommandManager
+Parser --> ClassMate : CheckPrereqStatusCommand
+deactivate Parser
+ClassMate -> CheckPrereqStatusCommand : executeCommand(major, ui,\nspecialisationOverview)
+activate CheckPrereqStatusCommand
+CheckPrereqStatusCommand -> Major : findModule("CS2113")
+activate Major
+Major --> CheckPrereqStatusCommand : module
+deactivate Major
+CheckPrereqStatusCommand -> CheckPrereqStatusCommand : getPrerequisites()
+loop for each prerequisite
+    CheckPrereqStatusCommand -> CheckPrereqStatusCommand : check completedModules
+end
+CheckPrereqStatusCommand --> ClassMate : print [DONE]/[TODO] status
+deactivate CheckPrereqStatusCommand
+@enduml

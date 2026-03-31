@@ -207,22 +207,8 @@ The `checkPrereqStatus` feature shows which prerequisites for a module the user 
 6. Results are printed showing `[DONE]` or `[TODO]` for each prerequisite.
 
 The sequence diagram below illustrates how the components interact when `checkPrereqStatus CS2113` is executed:
-```
-User        ClassMate      Parser        CommandManager     CheckPrereqStatusCommand    Major       Module
- |               |             |                |                      |                  |            |
- |--checkPrereqStatus CS2113-->|             |                      |                  |            |
- |               |--parse(...)-|>            |                      |                  |            |
- |               |             |--createCommand(...)--------------->|                  |            |
- |               |             |             |<-----CheckPrereqStatusCommand------------|            |
- |               |--executeCommand(...)------------------------------->|                |            |
- |               |             |             |                      |--findModule(...)>|            |
- |               |             |             |                      |<-----module-------|            |
- |               |             |             |                      |--getPrerequisites()---------->|
- |               |             |             |                      |<-----prerequisites------------|
- |               |             |             |              [loop for each prerequisite]             |
- |               |             |             |                      |--check completedModules        |
- |<--print [DONE]/[TODO] status--------------|                      |                  |            |
-```
+
+![checkPrereqStatus Sequence Diagram](resources/checkPrereqStatusSequenceDiagram.png)
 
 **Design Considerations:**
 - `completedModules` is stored as an `ArrayList` for simplicity. An alternative `HashSet` would give O(1) lookup but `ArrayList` is sufficient given the small number of modules a student completes.
