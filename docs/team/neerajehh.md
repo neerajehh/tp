@@ -23,21 +23,27 @@ Given below are my contributions to the project.
 
 * **New Feature**: `markDone` and `viewDone`
   * What it does: Allows users to mark modules as completed and view their completed modules list, which is saved across sessions.
-  * Justification: Students need to track their academic progress.
+  * Justification: Students need to track their academic progress across multiple sessions.
+
+* **New Feature**: `Storage`
+  * What it does: Handles persistent saving and loading of completed modules to and from a text file, so progress is retained between sessions.
+  * Justification: Without persistence, students would have to re-enter their completed modules every time they launch the app.
 
 * **Code contributed**: [RepoSense link](https://nus-cs2113-ay2526-s2.github.io/tp-dashboard/?search=neerajehh)
 
 * **Contributions to the UG**:
-  * Added documentation for `viewModuleInfo`, `queryModuleAvailability`, `checkPrereqStatus`, `markDone`, `viewDone` commands.
+  * Added documentation for `viewModuleInfo`, `queryModuleAvailability`, `checkPrereqStatus`, `markDone`, and `viewDone` commands including format, examples, and expected output.
 
 * **Contributions to the DG**:
-  * Added sequence diagram for `checkPrereqStatus` feature.
-  * Added implementation details for `queryModuleAvailability` feature.
+  * Added UML sequence diagram for `checkPrereqStatus` feature illustrating how components interact when the command is executed.
+  * Added implementation walkthrough and design considerations for `checkPrereqStatus`, `markDone`, `viewDone`, and `Storage`.
+  * Design considerations include: use of `ArrayList` vs `HashSet` for `completedModules`, file path handling in `Storage`, and separation of concerns between commands and storage.
 
 * **Contributions to team-based tasks**:
-  * Fixed checkstyle errors in `LoadTest.java`
-  * Added `@@author` tags to ensure correct RepoSense attribution
-  * Reviewed and merged PRs from teammates
+  * Implemented `Storage` class for persistent data saving and loading.
+  * Fixed checkstyle errors including duplicate imports.
+  * Added `@@author` tags to ensure correct RepoSense attribution.
+  * Reviewed and merged PRs from teammates.
 
 * **Review/mentoring contributions**:
-  * Reviewed PRs from teammates and provided feedback.
+  * Reviewed PRs from teammates and provided feedback on code quality and correctness.
