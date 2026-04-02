@@ -1,7 +1,7 @@
 Internet of Things,Core,Introduction to Internet of Things,CS3237,1,CG2028|CS1010
 Internet of Things,Core,Data Science for the Internet of Things,EE4211,1,EE2211|ST2334
 Internet of Things,Core,Modern Microelectronics Devices and Sensors,EE4409,2,CG2027
-Internet of Things,Elective,Computer Engineering Capstone Project,CG4002,1/2,CS12113
+Internet of Things,Elective,Computer Engineering Capstone Project,CG4002,1/2,CS2113
 Internet of Things,Elective,Wireless Networking,CS4222,2,EE4204|ST2334
 Internet of Things,Elective,Computer Networks,EE4204,1/2,None
 Internet of Things,Elective,Hardware for Internet of Things,EE4216,1,EE2026
@@ -44,18 +44,8 @@ Industry 4.0,Elective,Fuzzy Logic and Neuro Fuzzy Systems,EE4311,1,Check with yo
 Industry 4.0,Elective,Artificial Neural Networks,EE4312,2,Check with your faculty
 Industry 4.0,Elective,Eyes from above: Guidance; Navigation and Control,EE4314,1,EE2211
 Industry 4.0,Elective,Intelligent Industrial Control Systems,EE4315,1/2,Check with your faculty
-Industry 4.0,Elective,Automation,ME3242,1/2,Check with your faculty
-Industry 4.0,Elective,Automation in Manufacturing,ME4262,2,Check with your faculty
-Industry 4.0,Elective,Manufacturing Simulation and Data Communication,ME4248,1/2,Check with your faculty
-Industry 4.0,Elective,Modern Control System,ME4246,1/2,Check with your faculty
 Industry 4.0,Elective,Machine Vision,ME5405,1/2,EE3331C
-Industry 4.0,Elective,Advanced Process Control,CN4227R,1/2,Check with your faculty
-Industry 4.0,Elective,Control of Industrial Processes,CN4221R,2,CN3121
-Industry 4.0,Elective,Robot Learning,RB4301,1/2,Check with your faculty
 
-Robotics,Elective,Robotics in Rehabilitation,BN3203,1/2,Check with your faculty
-Robotics,Elective,Microrobotics,BN4207,2,Check with your faculty
-Robotics,Elective,Intelligent Medical Robotics,BN4601,1/2,Check with your faculty
 Robotics,Elective,Robotic System Design,EE3305,1,Check with your faculty
 Robotics,Elective,Remote Sensing and Analysis with Deep Learning Technique,EE4115,2,EE2211|CG2023|MA1508E
 Robotics,Elective,Fuzzy/Neural Systems for Intelligent Robotics,EE4305,1/2,Check with your faculty
@@ -65,9 +55,3 @@ Robotics,Elective,Fuzzy Logic and Neuro Fuzzy Systems,EE4311,1,Check with your f
 Robotics,Elective,Artificial Neural Networks,EE4312,2,Check with your faculty
 Robotics,Elective,Eyes from above: Guidance; Navigation and Control,EE4314,1,EE2211
 Robotics,Elective,Human-Robot Interaction,EE4705,1,EE2211|EE3331C
-Robotics,Elective,Sensors and Actuators,ME2143,1,ME2104
-Robotics,Elective,Soft Robotics,ME4242,1,Check with your faculty
-Robotics,Elective,Robot Mechanics and Control,ME4245,1,EE3331C
-Robotics,Elective,Deep Learning for Robotics,ME5406,2,Check with your faculty
-Robotics,Elective,Materials for Robotic Sensing and Actuation,MLE4228,1,Check with your faculty
-Robotics,Elective,Robot Learning,RB4301,1/2,Check with your faculty
