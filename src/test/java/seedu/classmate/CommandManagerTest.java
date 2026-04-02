@@ -1,7 +1,19 @@
 package seedu.classmate;
 
 import org.junit.jupiter.api.Test;
-import seedu.classmate.commands.*;
+import seedu.classmate.commands.Command;
+import seedu.classmate.commands.HelpCommand;
+import seedu.classmate.commands.ByeCommand;
+import seedu.classmate.commands.ViewGradReqsCommand;
+import seedu.classmate.commands.PrintModuleInfoCommand;
+import seedu.classmate.commands.QueryModuleAvailabilityCommand;
+import seedu.classmate.commands.ViewSpecialisationsCommand;
+import seedu.classmate.commands.SpecialisationInfoCommand;
+import seedu.classmate.commands.MarkDoneCommand;
+import seedu.classmate.commands.ViewDoneCommand;
+import seedu.classmate.commands.CheckProfileCommand;
+import seedu.classmate.commands.PrereqCommand;
+import seedu.classmate.commands.CheckPrereqStatusCommand;
 
 import java.util.ArrayList;
 
@@ -17,13 +29,15 @@ public class CommandManagerTest {
 
     @Test
     public void createHelpCommand() {
-        Command command = CommandManager.createCommand("help", "", completedModules, storage, userProfile);
+        Command command = CommandManager.createCommand("help", "", completedModules, storage,
+                userProfile);
         assertInstanceOf(HelpCommand.class, command);
     }
 
     @Test
     public void createByeCommand() {
-        Command command = CommandManager.createCommand("bye", "", completedModules, storage, userProfile);
+        Command command = CommandManager.createCommand("bye", "", completedModules, storage,
+                userProfile);
         assertInstanceOf(ByeCommand.class, command);
     }
 
@@ -44,7 +58,8 @@ public class CommandManagerTest {
     @Test
     public void createQueryModuleAvailabilityCommand() {
         Command command = CommandManager.createCommand(
-                "querymoduleavailability", "CS2113 sem1", completedModules, storage, userProfile);
+                "querymoduleavailability", "CS2113 sem1", completedModules, storage,
+                userProfile);
         assertInstanceOf(QueryModuleAvailabilityCommand.class, command);
     }
 

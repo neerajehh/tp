@@ -65,14 +65,14 @@ public class ParserTest {
     }
 
     @Test
-    public void parse_ValidCommandWithMixedCase() {
+    public void parse_validCommandWithMixedCase() {
         String userInput = "ViEwPrErEqS Cs2113";
         Command output = Parser.parse(userInput, completedModules, storage, userProfile);
         assertInstanceOf(PrereqCommand.class, output, "Output is of type PrereqCommand");
     }
 
     @Test
-    public void parse_ValidCommandWithInvalidArgument_throwsException() {
+    public void parse_validCommandWithInvalidArgument_throwsException() {
         String userInput = "viewprereqs Cs211";
         Command command = Parser.parse(userInput, completedModules, storage, userProfile);
 
@@ -83,7 +83,7 @@ public class ParserTest {
     }
 
     @Test
-    public void parse_ExactValidCommandWithInvalidArgument_throwsException() {
+    public void parse_exactValidCommandWithInvalidArgument_throwsException() {
         String userInput = "viewPreReqs Cs211";
         Command command = Parser.parse(userInput, completedModules, storage, userProfile);
 
@@ -94,7 +94,7 @@ public class ParserTest {
     }
 
     @Test
-    public void parse_InvalidCommandWithMixedCaseArgument_throwsException() {
+    public void parse_invalidCommandWithMixedCaseArgument_throwsException() {
         String userInput = "aCommand Cs2113";
         ClassMateException exception = assertThrows(ClassMateException.class,
                 () -> Parser.parse(userInput, completedModules, storage, userProfile));
@@ -103,14 +103,14 @@ public class ParserTest {
     }
 
     @Test
-    public void parse_ValidCommandWithLeadingAndTrailingWhitespace_doesNotThrow() {
+    public void parse_validCommandWithLeadingAndTrailingWhitespace_doesNotThrow() {
         String input = "   viewDone ";
         Command command = Parser.parse(input, completedModules, storage, userProfile);
         assertInstanceOf(ViewDoneCommand.class, command);
     }
 
     @Test
-    public void parse_ValidCommandWithWhitespaceInBetween_doesNotThrow() {
+    public void parse_validCommandWithWhitespaceInBetween_doesNotThrow() {
         String input = "markDone     CG2271";
         Command command = Parser.parse(input, completedModules, storage, userProfile);
         assertInstanceOf(MarkDoneCommand.class, command);
