@@ -1,20 +1,20 @@
-Engineering Calculus,MA1511,1/2,None
-Differential Equations for Engineering,MA1512,1/2,None
-Linear Algebra for Engineering,MA1508E,2,None
-Programming Methodology,CS1010,1/2,None
-Engineering Professionalism,EG2401A,1/2,None
-Engineering Principles and Practice I,CG1111A,1,None
-Engineering Principles and Practice II,CG2111A,2,CG1111A|CS1010
-Discrete Structures,CS1231,1/2,None
-Signals & Systems,CG2023,2,MA1512
-Transistor-level Digital Circuit,CG2027,1/2,CG1111A
-Computer Organization,CG2028,1/2,CS1010
-Digital Design,EE2026,1/2,CG1111A
-Data Structures and Algorithms,CS2040C,1/2,CS1010
-Software Engineering & Object-Oriented Programming,CS2113,1/2,CS2040C
-Introduction to Information Security,CS2107,1/2,CS1010
-Real-time Operating System,CG2271,1,CG1111A|CS2040C
-Machine Learning and Deep Learning,CG3201,2,EE2211|CS2040C
-Introduction to Machine Learning,EE2211,1/2,CS1010|MA1511|MA1508E
-Computer Architecture,CG3207,1,CG2028
-Computer Networks,EE4204,2,None
+Engineering Calculus,MA1511,2,1/2,None
+Differential Equations for Engineering,MA1512,2,1/2,None
+Linear Algebra for Engineering,MA1508E,4,2,None
+Programming Methodology,CS1010,4,1/2,None
+Engineering Professionalism,EG2401A,2,1/2,None
+Engineering Principles and Practice I,CG1111A,4,1,None
+Engineering Principles and Practice II,CG2111A,4,2,CG1111A|CS1010
+Discrete Structures,CS1231,4,1/2,None
+Signals & Systems,CG2023,4,2,MA1512
+Transistor-level Digital Circuit,CG2027,2,1/2,CG1111A
+Computer Organization,CG2028,2,1/2,CS1010
+Digital Design,EE2026,4,1/2,CG1111A
+Data Structures and Algorithms,CS2040C,4,1/2,CS1010
+Software Engineering & Object-Oriented Programming,CS2113,4,1/2,CS2040C
+Introduction to Information Security,CS2107,4,1/2,CS1010
+Real-time Operating System,CG2271,4,1,CG1111A|CS2040C
+Machine Learning and Deep Learning,CG3201,4,2,EE2211|CS2040C
+Introduction to Machine Learning,EE2211,4,1/2,CS1010|MA1511|MA1508E
+Computer Architecture,CG3207,4,1,CG2028
+Computer Networks,EE4204,4,2,None
