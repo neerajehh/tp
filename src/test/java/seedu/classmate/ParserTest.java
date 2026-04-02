@@ -65,14 +65,14 @@ public class ParserTest {
     }
 
     @Test
-    public void parseValidCommandWithMixedCase() {
+    public void parse_ValidCommandWithMixedCase() {
         String userInput = "ViEwPrErEqS Cs2113";
         Command output = Parser.parse(userInput, completedModules, storage, userProfile);
         assertInstanceOf(PrereqCommand.class, output, "Output is of type PrereqCommand");
     }
 
     @Test
-    public void parseValidCommandWithInvalidArgument_throwsException() {
+    public void parse_ValidCommandWithInvalidArgument_throwsException() {
         String userInput = "viewprereqs Cs211";
         Command command = Parser.parse(userInput, completedModules, storage, userProfile);
 
@@ -83,7 +83,7 @@ public class ParserTest {
     }
 
     @Test
-    public void parseExactValidCommandWithInvalidArgument_throwsException() {
+    public void parse_ExactValidCommandWithInvalidArgument_throwsException() {
         String userInput = "viewPreReqs Cs211";
         Command command = Parser.parse(userInput, completedModules, storage, userProfile);
 
@@ -93,14 +93,27 @@ public class ParserTest {
                 "Error message informs the user that the module is not found");
     }
 
-
     @Test
-    public void parseInvalidCommandWithMixedCase() {
+    public void parse_InvalidCommandWithMixedCaseArgument_throwsException() {
         String userInput = "aCommand Cs2113";
         ClassMateException exception = assertThrows(ClassMateException.class,
                 () -> Parser.parse(userInput, completedModules, storage, userProfile));
         assertEquals("Unknown command. Enter 'help' for available commands.", exception.getMessage(),
                 "Error message informs the user that the command is invalid");
+    }
+
+    @Test
+    public void parse_ValidCommandWithLeadingAndTrailingWhitespace_doesNotThrow() {
+        String input = "   viewDone ";
+        Command command = Parser.parse(input, completedModules, storage, userProfile);
+        assertInstanceOf(ViewDoneCommand.class, command);
+    }
+
+    @Test
+    public void parse_ValidCommandWithWhitespaceInBetween_doesNotThrow() {
+        String input = "markDone     CG2271";
+        Command command = Parser.parse(input, completedModules, storage, userProfile);
+        assertInstanceOf(MarkDoneCommand.class, command);
     }
 
     @Test

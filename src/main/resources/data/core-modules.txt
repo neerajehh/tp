@@ -15,5 +15,6 @@ Software Engineering & Object-Oriented Programming,CS2113,1/2,CS2040C
 Introduction to Information Security,CS2107,1/2,CS1010
 Real-time Operating System,CG2271,1,CG1111A|CS2040C
 Machine Learning and Deep Learning,CG3201,2,EE2211|CS2040C
+Introduction to Machine Learning,EE2211,1/2,CS1010,MA1511,MA1508E
 Computer Architecture,CG3207,1,CG2028
 Computer Networks,EE4204,2,None

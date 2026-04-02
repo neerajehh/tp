@@ -35,6 +35,21 @@ public class CheckPrereqStatusCommandTest {
         modules.add(cg2271);
 
         major = new Major(modules);
+
+        HashMap<String, ArrayList<Module>> iotMap = new HashMap<>();
+        ArrayList<Module> iotModules = new ArrayList<>();
+
+        Module cs3244 = new Module("CS3244", "Machine Learning");
+        cs3244.addPrerequisite("CS1010");
+        cs3244.addPrerequisite("ST2334");
+        cs3244.addPrerequisite("MA1508E");
+        cs3244.addPrerequisite("MA1511");
+        cs3244.addPrerequisite("MA1512");
+
+        iotModules.add(cs3244);
+        iotMap.put("Internet of Things", iotModules);
+
+        specOverview = new SpecialisationOverview(iotMap);
     }
 
 
@@ -103,7 +118,7 @@ public class CheckPrereqStatusCommandTest {
     @Test
     void execute_whitespaceModuleCode_doesNotThrow() {
         ArrayList<String> completed = new ArrayList<>();
-        CheckPrereqStatusCommand cmd = new CheckPrereqStatusCommand("  CG2028 ", completed);
+        CheckPrereqStatusCommand cmd = new CheckPrereqStatusCommand("  CG2271 ", completed);
         assertDoesNotThrow(() -> cmd.executeCommand(major, ui, specOverview),
                 "Command should trim whitespace in the user input and still detect the module code");
     }

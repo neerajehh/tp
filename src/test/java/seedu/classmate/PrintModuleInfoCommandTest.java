@@ -18,6 +18,7 @@ public class PrintModuleInfoCommandTest {
     private Major major;
     private SpecialisationOverview specOverview;
     private Ui ui;
+    private ArrayList<String> completedModules;
 
     @BeforeEach
     public void setUp() {
@@ -26,8 +27,22 @@ public class PrintModuleInfoCommandTest {
         cs2113.addPrerequisite("CS2040C");
         modules.add(cs2113);
         major = new Major(modules);
-        specOverview = new SpecialisationOverview(new HashMap<>());
+
+        HashMap<String, ArrayList<Module>> roboticsMap = new HashMap<>();
+        ArrayList<Module> roboticsModules = new ArrayList<>();
+
+        Module cs3244 = new Module("EE4705", "Human-Robot Interaction");
+        cs3244.addPrerequisite("EE2211");
+        cs3244.addPrerequisite("EE3331C");
+
+        roboticsModules.add(cs3244);
+        roboticsMap.put("Internet of Things", roboticsModules);
+
+        specOverview = new SpecialisationOverview(roboticsMap);
         ui = new Ui();
+
+        completedModules = new ArrayList<>();
+        completedModules.add("CS2040C");
     }
 
     @Test
@@ -53,6 +68,30 @@ public class PrintModuleInfoCommandTest {
     @Test
     void execute_moduleWithPrereqs_doesNotThrow() {
         PrintModuleInfoCommand cmd = new PrintModuleInfoCommand("CS2113", new java.util.ArrayList<>());
+        assertDoesNotThrow(() -> cmd.executeCommand(major, ui, specOverview));
+    }
+
+    @Test
+    void execute_moduleInSpecialisationOnly_doesNotThrow() {
+        PrintModuleInfoCommand cmd = new PrintModuleInfoCommand("EE4705", new java.util.ArrayList<>());
+        assertDoesNotThrow(() -> cmd.executeCommand(major, ui, specOverview));
+    }
+
+    @Test
+    void execute_lowerCaseModuleInSpecialisationOnly_doesNotThrow() {
+        PrintModuleInfoCommand cmd = new PrintModuleInfoCommand("ee4705", new java.util.ArrayList<>());
+        assertDoesNotThrow(() -> cmd.executeCommand(major, ui, specOverview));
+    }
+
+    @Test
+    void execute_whitespaceModuleCode_doesNotThrow() {
+        PrintModuleInfoCommand cmd = new PrintModuleInfoCommand("    EE4705  ", new java.util.ArrayList<>());
+        assertDoesNotThrow(() -> cmd.executeCommand(major, ui, specOverview));
+    }
+
+    @Test
+    void execute_moduleWithCompletedPrerequisites_doesNotThrow() {
+        PrintModuleInfoCommand cmd = new PrintModuleInfoCommand("CS2113", completedModules);
         assertDoesNotThrow(() -> cmd.executeCommand(major, ui, specOverview));
     }
 }

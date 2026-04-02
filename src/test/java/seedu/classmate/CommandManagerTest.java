@@ -1,17 +1,7 @@
 package seedu.classmate;
 
 import org.junit.jupiter.api.Test;
-import seedu.classmate.commands.ByeCommand;
-import seedu.classmate.commands.Command;
-import seedu.classmate.commands.HelpCommand;
-import seedu.classmate.commands.MarkDoneCommand;
-import seedu.classmate.commands.PrintModuleInfoCommand;
-import seedu.classmate.commands.QueryModuleAvailabilityCommand;
-import seedu.classmate.commands.SpecialisationInfoCommand;
-import seedu.classmate.commands.ViewDoneCommand;
-import seedu.classmate.commands.ViewGradReqsCommand;
-import seedu.classmate.commands.ViewSpecialisationsCommand;
-import seedu.classmate.commands.CheckProfileCommand; 
+import seedu.classmate.commands.*;
 
 import java.util.ArrayList;
 
@@ -91,6 +81,20 @@ public class CommandManagerTest {
         Command command = CommandManager.createCommand(
                 "checkprofile", "", completedModules, storage, userProfile);
         assertInstanceOf(CheckProfileCommand.class, command);
+    }
+
+    @Test
+    public void createPrereqCommand() {
+        Command command = CommandManager.createCommand(
+                "viewprereqs", "CS2113",  completedModules, storage, userProfile);
+        assertInstanceOf(PrereqCommand.class, command);
+    }
+
+    @Test
+    public void checkPrereqStatusCommand() {
+        Command command = CommandManager.createCommand(
+                "checkprereqstatus", "CS2113", completedModules, storage, userProfile);
+        assertInstanceOf(CheckPrereqStatusCommand.class, command);
     }
 
     @Test
