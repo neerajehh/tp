@@ -170,6 +170,11 @@ public class Specialisation {
                     "from the list below";
             break;
 
+        case "Others":
+            this.specialisationDescription = "None";
+            this.electiveRequirements = "None";
+            break;
+
         default:
             throw new ClassMateException("This is not a CEG specialisation");
         }

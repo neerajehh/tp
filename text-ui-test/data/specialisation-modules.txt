@@ -55,3 +55,9 @@ Robotics,Elective,Fuzzy Logic and Neuro Fuzzy Systems,EE4311,1,Check with your f
 Robotics,Elective,Artificial Neural Networks,EE4312,2,Check with your faculty
 Robotics,Elective,Eyes from above: Guidance; Navigation and Control,EE4314,1,EE2211
 Robotics,Elective,Human-Robot Interaction,EE4705,1,EE2211|EE3331C
+
+Others,NA,Probability and Statistics,ST2334,1/2,MA1511
+Others,NA,Electromagnetics for Electrical Engineers,PC2020,1/2,MA1511|MA1512
+Others,NA,Electrical Energy Systems,EE2022,1/2,CG1111A
+Others,NA,Signal Analytics,EE3731C,1,ST2334|CG2023
+Others,NA,Image Processing and Analysis,EE4704,1,CG2023
