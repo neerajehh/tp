@@ -13,8 +13,6 @@ import java.util.logging.Logger;
  * Marks a module as completed by the user.
  */
 // @@author neerajehh
-// @@author neerajehh
-// @@author neerajehh
 public class MarkDoneCommand extends Command {
     private static final Logger logger = Logger.getLogger(MarkDoneCommand.class.getName());
     private final String moduleCode;
@@ -57,6 +55,4 @@ public class MarkDoneCommand extends Command {
         System.out.println("Successfully marked " + moduleCode + " as done!");
     }
 }
-// @@author
-// @@author
 // @@author
