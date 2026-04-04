@@ -7,15 +7,15 @@ Refer to the guide [_Getting started_](link).
 
 ## **Design**
 ### Architecture
-ClassMate follows a simple component-based architecture. Each component has a clear responsibility and communicates through well-defined interfaces.
-![Architecture Diagram](resources/ArchitectureDiagram.png)
-The architecture of ClassMate is kept simple as all components reside in a single package. The main components are described in the Components section below.
+ClassMate adopts a 4-layer software architecture with the layers Controller, Model, View and Storage. This architecture heavily adopts a model-controller-view principle.
+![Architecture Diagram](resources/ArchitectureDiagram_v2.png)
+The main components are described in the Components section below.
 
 ### Components:
 * `ClassMate`: Initialises other components and houses the `main` execution loop.
 * `Parser`: Decompose raw user input strings into a command word and arguments, then delegating the creation of a `Command` object.
 * `Command`: An abstract base class for all instructions (e.g., `viewGradReqsCommand`, `ByeCommand`). Each subclass encapsulates the specific behavior of a user action and signals back to `ClassMate` if the app should terminate via the `isExit` flag.
-* `Ui`: Handles all interactions with the user. It is the only class that contains `System.out.println` calls, ensuring a consistent look and feel across the application.
+* `Ui`: Formats and prints output for simple commands such as showHelp(), showGoodbye(), showWelcome(), etc. This ensures a consistent look and feel across the application.
 * `UserProfile`: Holds the state of the user’s academic progress, including their specialisation and modules taken.
 * `ModulesLoader`: Loads the module information for major and specialisation modules to be used.
 * `Storage`: Responsible for reading from and writing data to the hard disk, ensuring user data is saved between sessions. 
@@ -53,12 +53,11 @@ User      ClassMate    Parser   CommandManager  PrereqCommand  Major  SpecOvw
 - If the requested module cannot be found, the command should report an error instead of generating the prerequisite tree.
 
 ### UI Component
-The UI component is responsible for displaying all user-facing text output in ClassMate to the user.
+The UI component is responsible for displaying user-facing text output in ClassMate to the user.
 It displays the welcome message, help information, error messages, exit message, and formatted results for feature commands.
 
 The UI acts purely as a presentation layer and contains no application logic.
-It ensures that all output is displayed in a consistent and readable format.
-This design follows the Single Responsibility Principle and makes the application easier to maintain. 
+It ensures that the output is displayed in a consistent and readable format.
 Changes to wording, formatting, or layout can be made in one place without affecting the rest of the system.
 
 ### Parser and CommandManager Component
