@@ -15,14 +15,14 @@ public class ClassMate {
      * Main entry-point for the java.classmate.Classmate application.
      */
     public static void main(String[] args) {
-        //modulesLoader.ensureDataFilesExist();
+        setupLogger();
+
         ArrayList<Module> coreModulesList = modulesLoader.loadCoreModules();
         HashMap<String, ArrayList<Module>> specialisationMap = modulesLoader.loadSpecialisationModules();
 
         ui.showWelcome();
         logger.info("ClassMate application started.");
 
-        Scanner in = new Scanner(System.in);
         Major major = new Major(coreModulesList);
         SpecialisationOverview specOverview = new SpecialisationOverview(specialisationMap);
         Storage storage = new Storage();
@@ -37,11 +37,13 @@ public class ClassMate {
              *    Alternatively, have a CommandManager to detect commandWord
              *    and return new XCommand subclasses
             */
-            // Guard clause to check if there's a new line before reading it
-            if (!in.hasNextLine()) {
+            String input = ui.readCommand();
+
+            // Guard clause to check for empty input
+            if (input == null) {
                 break;
             }
-            String input = in.nextLine();
+
             assert input != null : "Input should not be null";
             logger.info("User input: " + input);
 

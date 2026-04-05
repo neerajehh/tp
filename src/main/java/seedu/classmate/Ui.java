@@ -7,9 +7,28 @@ import java.util.ArrayList;
  * This class is responsible for displaying messages to the user.
  */
 public class Ui {
+    private final java.util.Scanner in;
+
+    public Ui() {
+        this.in = new java.util.Scanner(System.in);
+    }
 
     public static void printLine() {
         System.out.println("_".repeat(30));
+    }
+
+    /**
+     * Prints the input prompt and reads the user's raw command.
+     * This allows for distinction between user input and program output, enhancing Ui.
+     * @return The raw string input, or null if there is no more input.
+     */
+    public String readCommand() {
+        printLine();
+        System.out.print("ClassMate > "); // Input prompt '>'
+        if (in.hasNextLine()) {
+            return in.nextLine();
+        }
+        return null; // Signal the main loop to break
     }
 
     public void showWelcome() {
