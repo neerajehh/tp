@@ -1,10 +1,13 @@
 package seedu.classmate;
-
-import static org.junit.jupiter.api.Assertions.*;
+import seedu.classmate.commands.MarkDoneCommand;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import seedu.classmate.commands.MarkDoneCommand;
+
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.util.ArrayList;
 import java.util.HashMap;

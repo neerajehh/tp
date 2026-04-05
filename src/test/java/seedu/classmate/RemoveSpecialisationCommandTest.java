@@ -1,7 +1,10 @@
 package seedu.classmate;
-import static org.junit.jupiter.api.Assertions.*;
-
 import seedu.classmate.commands.RemoveSpecialisationCommand;
+
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -143,6 +146,7 @@ public class RemoveSpecialisationCommandTest {
         ClassMateException exception = assertThrows(ClassMateException.class,
                 () -> cmd.executeCommand(major, ui, specOverview));
 
-        assertEquals("Please provide a specialisation name. Format: removespecialisation <NAME>", exception.getMessage());
+        assertEquals("Please provide a specialisation name. " +
+                    "Format: removespecialisation <NAME>", exception.getMessage());
     }
 }
