@@ -54,43 +54,27 @@ public class UserProfile {
         userSpecialisations.add(specName);
     }
     // @@author
-//
-//    private void loadData() {
-//        File specFile = new File(SPEC_PATH);
-//        if (specFile.exists()) {
-//            try (Scanner scanner = new Scanner(specFile)) {
-//                if (scanner.hasNextLine()) {
-//                    this.specialization = scanner.nextLine().trim();
-//                }
-//            } catch (IOException e) {
-//                System.out.println("Could not load user's specialization.");
-//            }
-//        }
-//
-//        File modulesFile = new File(MODULES_PATH);
-//        if (modulesFile.exists()) {
-//            try (Scanner scanner = new Scanner(modulesFile)) {
-//                while (scanner.hasNextLine()) {
-//                    String module = scanner.nextLine().trim();
-//                    if (!module.isEmpty()) {
-//                        this.completedModules.add(module);
-//                    }
-//                }
-//            } catch (IOException e) {
-//                System.out.println("Could not load user's completed modules.");
-//            }
-//        }
-//    }
-//
-//    public void setSpecialization(String newSpecialization) {
-//        this.specialization = newSpecialization;
-//
-//        try {
-//            FileWriter writer = new FileWriter(SPEC_PATH, false);
-//            writer.write(newSpecialization);
-//            writer.close();
-//        } catch (IOException e) {
-//            System.out.println("Error saving specialization.");
-//        }
-//    }
+
+    // @@author lauwn-mower
+    public void removeSpecialisation(String specName) throws ClassMateException {
+        // Guard clause to check for empty input
+        if (userSpecialisations.isEmpty()) {
+            throw new ClassMateException("You haven't selected any specialisations to remove.");
+        }
+
+        // Check for a case-insensitive match
+        String specToRemove = null;
+        for (String spec : userSpecialisations) {
+            if (spec.equalsIgnoreCase(specName.trim())) {
+                specToRemove = spec;
+                break;
+            }
+        }
+        if (specToRemove == null) {
+            throw new ClassMateException("Specialisation '" + specName + "' not found in your profile.");
+        }
+
+        userSpecialisations.remove(specToRemove);
+    }
+    // @@author
 }

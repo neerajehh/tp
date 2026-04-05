@@ -7,6 +7,7 @@ import seedu.classmate.commands.MarkDoneCommand;
 import seedu.classmate.commands.PrereqCommand;
 import seedu.classmate.commands.PrintModuleInfoCommand;
 import seedu.classmate.commands.QueryModuleAvailabilityCommand;
+import seedu.classmate.commands.RemoveSpecialisationCommand;
 import seedu.classmate.commands.SetSpecialisationCommand;
 import seedu.classmate.commands.SpecialisationInfoCommand;
 import seedu.classmate.commands.ViewDoneCommand;
@@ -60,6 +61,9 @@ public class CommandManager {
 
         case "checkprofile":
             return new CheckProfileCommand(userProfile);
+
+        case "removespecialisation":
+            return new RemoveSpecialisationCommand(arguments, userProfile, storage);
 
         default:
             throw new ClassMateException("Unknown command. Enter 'help' for available commands.");
