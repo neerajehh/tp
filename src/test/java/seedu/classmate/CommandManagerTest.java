@@ -10,12 +10,13 @@ import seedu.classmate.commands.MarkDoneCommand;
 import seedu.classmate.commands.PrereqCommand;
 import seedu.classmate.commands.PrintModuleInfoCommand;
 import seedu.classmate.commands.QueryModuleAvailabilityCommand;
-import seedu.classmate.commands.SetSpecializationCommand;
+import seedu.classmate.commands.SetSpecialisationCommand;
 import seedu.classmate.commands.SpecialisationInfoCommand;
 import seedu.classmate.commands.ViewDoneCommand;
 import seedu.classmate.commands.ViewGradReqsCommand;
 import seedu.classmate.commands.ViewSpecialisationsCommand;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -7,13 +7,13 @@ import seedu.classmate.commands.MarkDoneCommand;
 import seedu.classmate.commands.PrereqCommand;
 import seedu.classmate.commands.PrintModuleInfoCommand;
 import seedu.classmate.commands.QueryModuleAvailabilityCommand;
+import seedu.classmate.commands.SetSpecialisationCommand;
 import seedu.classmate.commands.SpecialisationInfoCommand;
 import seedu.classmate.commands.ViewDoneCommand;
 import seedu.classmate.commands.ViewGradReqsCommand;
 import seedu.classmate.commands.ViewSpecialisationsCommand;
 import seedu.classmate.commands.CheckPrereqStatusCommand;
 import seedu.classmate.commands.CheckProfileCommand;
-import seedu.classmate.commands.SetSpecializationCommand;
 
 import java.util.ArrayList;
 
@@ -56,7 +56,7 @@ public class CommandManager {
             return new CheckPrereqStatusCommand(arguments, completedModules);
 
         case "setspecialisation":
-            return new SetSpecializationCommand(arguments, userProfile);
+            return new SetSpecialisationCommand(arguments, userProfile, storage);
 
         case "checkprofile":
             return new CheckProfileCommand(userProfile);
