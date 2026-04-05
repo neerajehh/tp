@@ -38,10 +38,14 @@ public class RemoveSpecialisationCommand extends Command {
      * It validates the user input, updates the {@code UserProfile} model, saves the new state
      * via the {@code Storage} component, and outputs a success message to the console.
      *
-     * @param major                  The {@code Major} instance containing curriculum requirements (unused in this command).
-     * @param ui                     The {@code Ui} handler for user interactions (unused directly in this command's execution).
-     * @param specialisationOverview The overview containing data for all available specialisations (unused in this command).
-     * @throws ClassMateException If the provided specialisation name is empty or if the removal process fails within the profile.
+     * @param major                  The {@code Major} instance containing
+     *                               curriculum requirements (unused in this command).
+     * @param ui                     The {@code Ui} handler for
+     *                               user interactions (unused directly in this command's execution).
+     * @param specialisationOverview The overview containing data for
+     *                               all available specialisations (unused in this command).
+     * @throws ClassMateException If the provided specialisation name is empty
+     *                               or if the removal process fails within the profile.
      */
     @Override
     public void executeCommand(Major major, Ui ui, SpecialisationOverview specialisationOverview) {

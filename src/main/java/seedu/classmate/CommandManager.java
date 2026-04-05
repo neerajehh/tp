@@ -16,8 +16,6 @@ import seedu.classmate.commands.ViewSpecialisationsCommand;
 import seedu.classmate.commands.CheckPrereqStatusCommand;
 import seedu.classmate.commands.CheckProfileCommand;
 
-import java.util.ArrayList;
-
 public class CommandManager {
 
     public static Command createCommand(String commandWord, String arguments,

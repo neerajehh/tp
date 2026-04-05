@@ -30,6 +30,7 @@ public class CheckProfileCommand extends Command {
         assert userProfile != null : "UserProfile should not be null";
         this.userProfile = userProfile;
     }
+    // @@author
 
     /**
      * Executes the command to evaluate and print the user's academic progress.
@@ -44,7 +45,6 @@ public class CheckProfileCommand extends Command {
     @Override
     public void executeCommand(Major major, Ui ui, SpecialisationOverview specialisationOverview) {
         logger.info("Executing CheckProfileCommand");
-    // @@author
 
         // @@author lauwn-mower
         ArrayList<String> completedModules = userProfile.getUserCompletedModules();

@@ -1,10 +1,6 @@
 package seedu.classmate;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * Represents the user's personal academic profile within the application.
@@ -36,7 +32,8 @@ public class UserProfile {
 
     /**
      * Retrieves the list of module codes the user has completed.
-     * * @return An {@code ArrayList<String>} representing the completed module codes.
+     *
+     * @return An {@code ArrayList<String>} representing the completed module codes.
      */
     public ArrayList<String> getUserCompletedModules() {
         return userCompletedModules;
@@ -44,7 +41,8 @@ public class UserProfile {
 
     /**
      * Marks a specific module as completed by adding it to the user's profile.
-     * * @param moduleCode The string code of the module to mark as done (e.g., "CS2113").
+     *
+     * @param moduleCode The string code of the module to mark as done (e.g., "CS2113").
      * @throws ClassMateException If the module code already exists in the completed list.
      */
     public void markModuleDone(String moduleCode) throws ClassMateException {
@@ -73,7 +71,7 @@ public class UserProfile {
      *
      * @param specName The string name of the specialisation to add.
      * @throws ClassMateException If the user has already reached the maximum allowed specialisations,
-     * or if they are attempting to add a duplicate specialisation.
+     *                            or if they are attempting to add a duplicate specialisation.
      */
     public void addSpecialisation(String specName) throws ClassMateException {
         if (userSpecialisations.size() >= MAX_SPECIALISATIONS) {
@@ -90,9 +88,10 @@ public class UserProfile {
     /**
      * Removes an existing specialisation from the user's profile.
      * The removal check is case-insensitive to account for user input variation.
-     * * @param specName The string name of the specialisation to remove.
+     *
+     * @param specName The string name of the specialisation to remove.
      * @throws ClassMateException If the profile currently has no specialisations, or if the
-     * requested specialisation name is not found in the profile.
+     *                            requested specialisation name is not found in the profile.
      */
     public void removeSpecialisation(String specName) throws ClassMateException {
         // Guard clause to check for empty input

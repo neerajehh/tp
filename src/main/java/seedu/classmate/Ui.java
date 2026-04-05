@@ -72,9 +72,11 @@ public class Ui {
                 - viewGradReqs: Print CEG graduation requirements
                 - viewPrereqs MODULE_CODE: View the prerequisite tree of a specific module
                 - viewModuleInfo MODULE_CODE: Show details for a specific module
-                - queryModuleAvailability MODULE_CODE SEM<1/2>: Check if a module MODULE_CODE is available in a certain semester SEM<1/2>
+                - queryModuleAvailability MODULE_CODE SEM<1/2>: 
+                    Check if a module MODULE_CODE is available in a certain semester SEM<1/2>
                 - viewSpecialisations: View list of all CEG specialisations
-                - viewSpecialisationInfo SPECIALISATION_INDEX: View specific requirements for a specialisation. See viewSpecialisations for index
+                - viewSpecialisationInfo SPECIALISATION_INDEX: View specific requirements for a specialisation. 
+                                                               See viewSpecialisations for index
                 - checkPrereqStatus MODULE_CODE: Check prereq completion status
                 
                 --- Profile & Progress Tracking ---
@@ -82,7 +84,8 @@ public class Ui {
                 - viewDone: View a list of all your completed modules
                 - setSpecialisation NAME: Add an academic specialisation to your profile (You can select up to 2)
                 - removeSpecialisation NAME: Remove a specialisation from your profile
-                - checkProfile: View your comprehensive academic profile, including remaining major core and specialisation progress""");
+                - checkProfile: View your comprehensive academic profile, 
+                                including remaining major core and specialisation progress""");
         printLine();
     }
 
