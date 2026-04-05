@@ -38,6 +38,13 @@ public class Major {
         return moduleListHeader + moduleList;
     }
 
+    /**
+     * Retrieves the list of core modules required for the CEG major.
+     * This method provides the raw data needed by other components (e.g. Ui)
+     * to process or display the graduation requirements.
+     *
+     * @return An {@code ArrayList} of {@code Module} objects representing CEG requirements.
+     */
     public ArrayList<Module> getCoreModules() {
         return coreModules;
     }

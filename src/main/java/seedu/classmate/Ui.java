@@ -88,6 +88,13 @@ public class Ui {
         printLine();
     }
 
+    /**
+     * Formats and prints the list of CEG major graduation requirements to the console.
+     * If the provided list is empty, it notifies the user accordingly.
+     *
+     * @param coreModules The list of core {@code Module} objects to be displayed.
+     * Must not be null.
+     */
     public void showGraduationRequirements(ArrayList<Module> coreModules) {
         printLine();
         if (coreModules.isEmpty()) {

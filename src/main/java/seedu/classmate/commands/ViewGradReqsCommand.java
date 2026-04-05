@@ -10,11 +10,13 @@ import seedu.classmate.Ui;
 public class ViewGradReqsCommand extends Command{
 
     /**
-     * Displays the graduant requirements.
+     * Executes the command to display the CEG graduation requirements.
+     * Retrieves the core module list from the {@code Major} instance and delegates
+     * the formatting and console output to the {@code Ui} handler.
      *
-     * @param major The {@code Major} instance containing the graduation requirement data.
-     * @param ui The {@code Ui} handler (unused).
-     * @param specialisationOverview The overview of all specialisations (unused).
+     * @param major                  The {@code Major} instance containing the graduation requirement data.
+     * @param ui                     The {@code Ui} handler used to print the requirements to the user.
+     * @param specialisationOverview The overview of all specialisations (unused in this command).
      */
     @Override
     public void executeCommand(Major major, Ui ui, SpecialisationOverview specialisationOverview) {
