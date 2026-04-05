@@ -8,20 +8,50 @@ Welcome to
 I'm your CEG course planning assistant!
 Type 'help' to see available commands.
 ______________________________
-Available commands:
-- help: Viewing help
-- viewGradReqs: Print CEG graduation requirements
-- viewPrereqs MODULE_CODE: View the prerequisite tree of a specific module
-- viewModuleInfo MODULE_CODE: Show details for a specific module
-- queryModuleAvailability MODULE_CODE SEM<1/2>: Check if a module MODULE_CODE is available in a certain semester SEM<1/2>
-- viewSpecialisations: View list of all CEG specialisations
-- checkPrereqStatus MODULE_CODE: Check prereq completion status
-- viewSpecialisationInfo SPECIALISATION_INDEX: View specific requirements for a specialisation. See viewSpecialisation for index
+______________________________
+ClassMate > Available commands:
+- help:
+    Viewing help
+- bye:
+    Exit the application
+- viewGradReqs:
+    Print CEG graduation requirements
+- viewPrereqs MODULE_CODE:
+    View the prerequisite tree of a specific module
+- viewModuleInfo MODULE_CODE:
+    Show details for a specific module
+- queryModuleAvailability MODULE_CODE SEM<1/2>:
+    Check if a module MODULE_CODE is available in a certain semester SEM<1/2>
+- viewSpecialisations:
+    View list of all CEG specialisations
+- viewSpecialisationInfo SPECIALISATION_INDEX:
+    View specific requirements for a specialisation.
+    See viewSpecialisations for index.
+- checkPrereqStatus MODULE_CODE:
+    Check prereq completion status
+
+--- Profile & Progress Tracking ---
+- markDone MODULE_CODE:
+    Mark a specific module as completed
+- viewDone:
+    View a list of all your completed modules
+- setSpecialisation NAME:
+    Add an academic specialisation to your profile (You can select up to 2)
+- removeSpecialisation NAME:
+    Remove a specialisation from your profile
+- checkProfile:
+    View your comprehensive academic profile,
+    including remaining major core and specialisation progress
 ______________________________
 ______________________________
+ClassMate > ______________________________
     (!) ERROR: Unknown command. Enter 'help' for available commands.
 ______________________________
-Here is a list of modules required to fulfill CEG Major: MA1511 Engineering Calculus
+______________________________
+ClassMate > ______________________________
+Here is a list of modules required to fulfill CEG Major:
+
+MA1511 Engineering Calculus
 MA1512 Differential Equations for Engineering
 MA1508E Linear Algebra for Engineering
 CS1010 Programming Methodology
@@ -41,5 +71,7 @@ CG3201 Machine Learning and Deep Learning
 EE2211 Introduction to Machine Learning
 CG3207 Computer Architecture
 EE4204 Computer Networks
-Goodbye! Happy course planning!
+______________________________
+______________________________
+ClassMate > Goodbye! Happy course planning!
 ______________________________
