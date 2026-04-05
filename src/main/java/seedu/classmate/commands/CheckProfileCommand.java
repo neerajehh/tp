@@ -38,13 +38,13 @@ public class CheckProfileCommand extends Command {
     public void executeCommand(Major major, Ui ui, SpecialisationOverview specialisationOverview) {
         logger.info("Executing CheckProfileCommand");
 
-        String specialization = userProfile.getSpecialization();
-        ArrayList<String> completedModules = userProfile.getCompletedModules();
+        ArrayList<String> userSpecialisations = userProfile.getUserSpecialisations();
+        ArrayList<String> completedModules = userProfile.getUserCompletedModules();
 
         System.out.println("Your Academic Profile:");
         Ui.printLine();
 
-        System.out.println("Specialization: " + specialization);
+        System.out.println("Specialisation: " + userSpecialisations);
         
         System.out.println("Completed Modules:");
         if (completedModules.isEmpty()) {

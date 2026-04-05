@@ -24,16 +24,21 @@ public class ClassMate {
         ui.showWelcome();
         logger.info("ClassMate application started.");
 
+        // Import Major and Specialisation info from txt files
         Major major = new Major(coreModulesList);
         SpecialisationOverview specOverview = new SpecialisationOverview(specialisationMap);
+
+        // Load user data from txt files via Storage
         Storage storage = new Storage();
-        UserProfile userProfile = new UserProfile();
+        ArrayList<String> loadedModules = storage.loadCompletedModules();
+        ArrayList<String> loadedSpecs = storage.loadSpecialisations();
+        UserProfile userProfile = new UserProfile(loadedModules, loadedSpecs);
 
-        ArrayList<String> completedModules = storage.load();
-
-        boolean isExit = false; // Flag to determine whether to exit Program
+        // Flag to determine whether to exit program
+        boolean isExit = false;
 
         while (!isExit) {
+            // Reading of inputs handled by Ui
             String input = ui.readCommand();
 
             // Guard clause to check for empty input
@@ -46,7 +51,7 @@ public class ClassMate {
 
             try {
                 // Delegate to Parser to identify command and execute command
-                Command command = Parser.parse(input, completedModules, storage, userProfile);
+                Command command = Parser.parse(input, loadedModules, storage, userProfile);
                 command.executeCommand(major, ui, specOverview);
 
                 isExit = command.isExit();
