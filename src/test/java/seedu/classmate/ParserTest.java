@@ -32,7 +32,7 @@ public class ParserTest {
     private final ArrayList<String> completedModules = new ArrayList<>();
     private final Storage storage = new Storage();
     private final Ui ui = new Ui();
-    private final UserProfile userProfile = new UserProfile();
+    private final UserProfile userProfile = new UserProfile(new ArrayList<>(), new ArrayList<>());
     private final Major major = new Major(new ArrayList<>());
     private final SpecialisationOverview specOverview = new SpecialisationOverview(new HashMap<>());
 

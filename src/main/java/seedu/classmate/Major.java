@@ -31,11 +31,22 @@ public class Major {
         if (coreModules.isEmpty()) {
             return "Core Modules List is currently empty.";
         }
-        String moduleListHeader = "Here is a list of modules required to fulfill CEG Major: ";
+        String moduleListHeader = "Here is a list of modules required to fulfill CEG Major:\n";
         String moduleList = coreModules.stream()
                 .map(Module::toString)
                 .collect(Collectors.joining("\n"));
         return moduleListHeader + moduleList;
+    }
+
+    /**
+     * Retrieves the list of core modules required for the CEG major.
+     * This method provides the raw data needed by other components (e.g. Ui)
+     * to process or display the graduation requirements.
+     *
+     * @return An {@code ArrayList} of {@code Module} objects representing CEG requirements.
+     */
+    public ArrayList<Module> getCoreModules() {
+        return coreModules;
     }
 
     /**

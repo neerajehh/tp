@@ -13,7 +13,7 @@ import java.util.HashMap;
  * specialisation, and print detailed infromation about a selected specialisation.
  */
 public class SpecialisationOverview {
-    private static ArrayList<Specialisation> specs;
+    private ArrayList<Specialisation> specs;
 
     /**
      * Constructs a SpecialisationOverview object and initialises the list of available CEG specialisations.
@@ -71,6 +71,25 @@ public class SpecialisationOverview {
 
         return null;
     }
+
+    // @@author lauwn-mower
+    /**
+     * Retrieves a specialisation object based on its exact name.
+     * Used to map saved string data back into usable objects.
+     *
+     * @param name The name of the specialisation (e.g., "Robotics").
+     * @return The Specialisation object if found, or null if it doesn't exist.
+     */
+    public Specialisation getSpecialisationByName(String name) {
+        for (Specialisation spec : specs) {
+            // using equalsIgnoreCase makes it robust against capitalization typos
+            if (spec.getSpecialisationName().equalsIgnoreCase(name.trim())) {
+                return spec;
+            }
+        }
+        return null;
+    }
+    // @@author
 }
 
 //@@author

@@ -22,7 +22,9 @@ public class UiTest {
     }
 
     @AfterEach
-    void tearDown() { System.setOut(originalOut);     }
+    void tearDown() {
+        System.setOut(originalOut);
+    }
 
     @Test
     void showWelcome_printsWelcomeMessage() {

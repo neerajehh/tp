@@ -1,0 +1,45 @@
+package seedu.classmate.commands;
+
+import seedu.classmate.Major;
+import seedu.classmate.SpecialisationOverview;
+import seedu.classmate.Storage;
+import seedu.classmate.Ui;
+import seedu.classmate.UserProfile;
+import seedu.classmate.ClassMateException;
+
+import java.util.logging.Logger;
+// @@author Michael-coding06
+/**
+ * Represents a command to set the user's academic specialization.
+ */
+public class SetSpecialisationCommand extends Command {
+
+    private static final Logger logger = Logger.getLogger(SetSpecialisationCommand.class.getName());
+    private final String newSpecialisation;
+    private final UserProfile userProfile;
+    private final Storage storage;
+
+    public SetSpecialisationCommand(String args, UserProfile userProfile, Storage storage) {
+        this.newSpecialisation = args.trim();
+        this.userProfile = userProfile;
+        this.storage = storage;
+    }
+
+    @Override
+    public void executeCommand(Major major, Ui ui, SpecialisationOverview specialisationOverview) {
+        if (newSpecialisation.isEmpty()) {
+            throw new ClassMateException("Please provide a specialisation name. " +
+                                         "Format: setspecialisation <NAME>");
+        }
+
+        logger.info("Setting specialization to: " + newSpecialisation);
+        
+        // Update the profile (this automatically saves to specialization.txt)
+        userProfile.addSpecialisation(newSpecialisation);
+        storage.saveUserProfile(userProfile);
+
+        System.out.println("Success! Your specialization has been set to: " + newSpecialisation);
+        Ui.printLine();
+    }
+}
+// @@author

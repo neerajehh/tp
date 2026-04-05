@@ -3,7 +3,8 @@ import seedu.classmate.commands.Command;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
 public class ClassMate {
@@ -15,38 +16,42 @@ public class ClassMate {
      * Main entry-point for the java.classmate.Classmate application.
      */
     public static void main(String[] args) {
-        //modulesLoader.ensureDataFilesExist();
+        setupLogger();
+
         ArrayList<Module> coreModulesList = modulesLoader.loadCoreModules();
         HashMap<String, ArrayList<Module>> specialisationMap = modulesLoader.loadSpecialisationModules();
 
         ui.showWelcome();
         logger.info("ClassMate application started.");
 
-        Scanner in = new Scanner(System.in);
+        // Import Major and Specialisation info from txt files
         Major major = new Major(coreModulesList);
         SpecialisationOverview specOverview = new SpecialisationOverview(specialisationMap);
+
+        // Load user data from txt files via Storage
         Storage storage = new Storage();
-        UserProfile userProfile = new UserProfile();
+        ArrayList<String> loadedModules = storage.loadCompletedModules();
+        ArrayList<String> loadedSpecs = storage.loadSpecialisations();
+        UserProfile userProfile = new UserProfile(loadedModules, loadedSpecs);
 
-        ArrayList<String> completedModules = storage.load();
-
-        boolean isExit = false; // Flag to determine whether to exit Program
+        // Flag to determine whether to exit program
+        boolean isExit = false;
 
         while (!isExit) {
-            /* TODO: to let input reading be handled by Parser class
-             *    Alternatively, have a CommandManager to detect commandWord
-             *    and return new XCommand subclasses
-            */
-            // Guard clause to check if there's a new line before reading it
-            if (!in.hasNextLine()) {
+            // Reading of inputs handled by Ui
+            String input = ui.readCommand();
+
+            // Guard clause to check for empty input
+            if (input == null) {
                 break;
             }
-            String input = in.nextLine();
+
             assert input != null : "Input should not be null";
             logger.info("User input: " + input);
 
             try {
-                Command command = Parser.parse(input, completedModules, storage, userProfile);
+                // Delegate to Parser to identify command and execute command
+                Command command = Parser.parse(input, loadedModules, storage, userProfile);
                 command.executeCommand(major, ui, specOverview);
 
                 isExit = command.isExit();
@@ -57,4 +62,16 @@ public class ClassMate {
         logger.info("ClassMate application exited.");
     }
 
+    /**
+     * Configures the application's logging settings.
+     * For v2.1, this silences console logs to keep the CLI clean for the user.
+     * To edit method to enable logging when needed
+     */
+    private static void setupLogger() {
+        LogManager.getLogManager().reset();
+        Logger globalLogger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
+        // Change to Level.ALL if logging is needed for debugging
+        globalLogger.setLevel(Level.OFF);
+    }
 }

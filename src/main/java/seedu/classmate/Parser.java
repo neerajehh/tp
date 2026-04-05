@@ -34,7 +34,7 @@ public class Parser {
         String commandWord = components[0].toLowerCase();
         String arguments = (components.length > 1) ? components[1].trim().toUpperCase() : "";
 
-        return CommandManager.createCommand(commandWord, arguments, completedModules, storage, userProfile);
+        return CommandManager.createCommand(commandWord, arguments, storage, userProfile);
     }
 }
 
