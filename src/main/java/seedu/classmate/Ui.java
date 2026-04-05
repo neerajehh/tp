@@ -88,6 +88,19 @@ public class Ui {
         printLine();
     }
 
+    public void showGraduationRequirements(ArrayList<Module> coreModules) {
+        printLine();
+        if (coreModules.isEmpty()) {
+            System.out.println("Core Modules List is currently empty.");
+        } else {
+            System.out.println("Here is a list of modules required to fulfill CEG Major:\n");
+            for (Module m : coreModules) {
+                System.out.println(m.getModuleCode() + " " + m.getModuleName());
+            }
+        }
+        printLine();
+    }
+
     //@@author VinayVR26
 
     /**

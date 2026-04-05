@@ -18,6 +18,6 @@ public class ViewGradReqsCommand extends Command{
      */
     @Override
     public void executeCommand(Major major, Ui ui, SpecialisationOverview specialisationOverview) {
-        System.out.println(major);
+        ui.showGraduationRequirements(major.getCoreModules());
     }
 }

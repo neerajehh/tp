@@ -38,6 +38,10 @@ public class Major {
         return moduleListHeader + moduleList;
     }
 
+    public ArrayList<Module> getCoreModules() {
+        return coreModules;
+    }
+
     /**
      * Finds a module by its module code.
      *
