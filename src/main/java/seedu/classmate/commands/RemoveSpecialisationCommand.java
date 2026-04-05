@@ -2,13 +2,13 @@ package seedu.classmate.commands;
 
 import java.util.logging.Logger;
 
+import seedu.classmate.ClassMateException;
 import seedu.classmate.Major;
 import seedu.classmate.SpecialisationOverview;
 import seedu.classmate.Storage;
 import seedu.classmate.Ui;
 import seedu.classmate.UserProfile;
 
-// this command removes a specialisation from user profile
 public class RemoveSpecialisationCommand extends Command {
 
     private static final Logger logger = Logger.getLogger(RemoveSpecialisationCommand.class.getName());
@@ -24,7 +24,20 @@ public class RemoveSpecialisationCommand extends Command {
 
     @Override
     public void executeCommand(Major major, Ui ui, SpecialisationOverview specialisationOverview) {
-        // parallel logic from setSpecialisationCommand
-        // call on method to removeSpecialisation from UserProfile class
+        if (specToRemove.isEmpty()) {
+            throw new ClassMateException("Please provide a specialisation name. " +
+                    "Format: removespecialisation <NAME>");
+        }
+
+        logger.info("Removing specialisation from profile: " + specToRemove);
+
+        userProfile.removeSpecialisation(specToRemove);
+
+        storage.saveUserProfile(userProfile);
+
+        System.out.println("    Success! Removed specialisation: " + specToRemove);
+        System.out.println("    You now have "
+                                + userProfile.getUserSpecialisations().size()
+                                + " specialisation(s) selected.");
     }
 }

@@ -66,6 +66,7 @@ public class Ui {
                 - markDone MODULE_CODE: Mark a specific module as completed
                 - viewDone: View a list of all your completed modules
                 - setSpecialisation NAME: Add an academic specialisation to your profile (You can select up to 2)
+                - removeSpecialisation NAME: Remove a specialisation from your profile
                 - checkProfile: View your comprehensive academic profile, including remaining major core and specialisation progress""");
         printLine();
     }
