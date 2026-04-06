@@ -51,6 +51,7 @@ public class MarkDoneCommand extends Command {
 
         // Module exists and can be marked as done
         userProfile.markModuleDone(moduleCode); // Throws ClassMateException if already done
+        storage.saveUserProfile(userProfile);
 
         logger.info("Marked " + moduleCode + " as done.");
         System.out.println("Successfully marked " + moduleCode + " as done!");
