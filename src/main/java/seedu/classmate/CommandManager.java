@@ -49,7 +49,7 @@ public class CommandManager {
             return new MarkDoneCommand(arguments, userProfile, storage);
 
         case "viewdone":
-            return new ViewDoneCommand(userProfile.getUserCompletedModules());
+            return new ViewDoneCommand(userProfile.getUserCompletedModules(), arguments);
 
         case "checkprereqstatus":
             return new CheckPrereqStatusCommand(arguments, userProfile.getUserCompletedModules());

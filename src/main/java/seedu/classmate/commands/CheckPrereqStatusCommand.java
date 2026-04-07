@@ -30,7 +30,7 @@ public class CheckPrereqStatusCommand extends Command {
     public CheckPrereqStatusCommand(String args, ArrayList<String> completedModules) {
         assert args != null : "Args should not be null";
         assert completedModules != null : "Completed modules list should not be null";
-        this.moduleCode = args.trim().toUpperCase();
+        this.moduleCode = args.trim().split("\\s+")[0].toUpperCase();
         this.completedModules = completedModules;
     }
 
