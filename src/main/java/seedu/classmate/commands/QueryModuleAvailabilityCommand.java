@@ -39,7 +39,7 @@ public class QueryModuleAvailabilityCommand extends Command {
      * @param major The {@code Major} instance containing module data.
      * @param display The {@code Ui} handler (unused).
      * @param specialisationOverview The overview of specialisations (unused).
-     * @throws ClassMateException If the module is not found.
+     * @throws ClassMateException If the module is not found or semester is invalid.
      */
     @Override
     public void executeCommand(Major major, Ui display, SpecialisationOverview specialisationOverview) {
@@ -55,6 +55,9 @@ public class QueryModuleAvailabilityCommand extends Command {
         }
 
         String result = module.checkAvailability(semester);
+        if (result.equals("Invalid semester. Please enter sem1 or sem2.")) {
+            throw new ClassMateException("Invalid semester. Please enter sem1 or sem2.");
+        }
         System.out.println(result);
     }
 }
