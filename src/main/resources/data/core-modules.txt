@@ -17,4 +17,4 @@ Real-time Operating System,CG2271,4,1,CG1111A|CS2040C
 Machine Learning and Deep Learning,CG3201,4,2,EE2211|CS2040C
 Introduction to Machine Learning,EE2211,4,1/2,CS1010|MA1511|MA1508E
 Computer Architecture,CG3207,4,1,CG2028
-Computer Networks,EE4204,4,2,None
+Computer Networks,EE4204,4,2,CS2113

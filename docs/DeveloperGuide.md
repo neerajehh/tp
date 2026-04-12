@@ -112,7 +112,7 @@ It also provides methods to retrieve and update user profile information, such a
 
 ### Storage Component
 The Storage component is responsible for the persistence of user data across different application sessions. Its key responsibilities include:
-* **File Management:** Manages two distinct data files: `completedModules.txt` (for academic history) and `specialization.txt` (for selected tracks).
+* **File Management:** Manages two distinct data files: `completedModules.txt` (for academic history) and `specialisation.txt` (for selected tracks).
 * **Data Retrieval:** At application startup, it parses raw text data into `ArrayList<String>` collections and returns them to the `ClassMate` main class for model initialization.
 * **State Persistence:** Provides a unified `saveUserProfile()` method that converts the current state of the `UserProfile` back into a standardized text format for disk storage.
 * **Data Flow Sequence:**
@@ -320,7 +320,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | student looking to specialise             | view modules tied to specific specialisations | explore potential academic tracks and take necessary prerequisites                |
 | `* * *`  | student looking to specialise             | view overview of a specialisation             | understand what the specialisation is about to see if it algins with my interests |
 | `* *`    | recurring user                            | save my profile and academic history          | avoid the repetitive task of re-entering completed modules                        |
-| `* *`    | user who wants a visual overview          | view a progress tracker for my degree         | stay motivated and ensure I am on track for graduation                            |
+| `* *`    | student                                   | check my current academic progress            | stay motivated and ensure I am on track for graduation                            |
+| `* *`    | student                                   | remove a module from my completed list        | correct my mistake for marking wrong modules as done                            |
 | `* *`    | student                                   | view modules using keywords                   | find relevant courses even if I do not know the exact module code                 |
 | `*`      | user wanting non-core modules             | view non-core modules using keywords          | find interesting electives outside of my primary major                            |
 | `*`      | user easily overwhelmed by info           | view modules filtered by level or subject     | narrow down my choices to suit my current year of study                           |
@@ -389,7 +390,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 ### Specialisation Management
 * **Adding a specialisation:**
   * Input: `setSpecialisation Robotics`
-  * Expected: Success message shown. Data persists in `data/specialization.txt`.
+  * Expected: Success message shown. Data persists in `data/specialisation.txt`.
 * **Testing Limits:**
   * Action: Add two specialisations, then attempt to add a third.
   * Expected: Error message: "You can only select up to 2 specialisations."

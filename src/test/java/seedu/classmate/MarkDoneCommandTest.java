@@ -52,7 +52,8 @@ public class MarkDoneCommandTest {
     @Test
     void execute_alreadyMarkedDone_doesNotDuplicate() {
         // Mark done the first time
-        assertDoesNotThrow(() -> userProfile.markModuleDone("CS2113"));
+        Module cs2113 = new Module("CS2113", "Software Engineering & OOP", 4);
+        assertDoesNotThrow(() -> userProfile.markModuleDone(cs2113));
 
         // Mark done the second time
         MarkDoneCommand cmd = new MarkDoneCommand("CS2113", userProfile, storage);

@@ -42,15 +42,24 @@ public class UserProfile {
     /**
      * Marks a specific module as completed by adding it to the user's profile.
      *
-     * @param moduleCode The string code of the module to mark as done (e.g., "CS2113").
-     * @throws ClassMateException If the module code already exists in the completed list.
+     * @param module The module to mark as done.
+     * @throws ClassMateException If the module is already completed or prerequisites are not met.
      */
-    public void markModuleDone(String moduleCode) throws ClassMateException {
-        String code = moduleCode.toUpperCase();
-        if (userCompletedModules.contains(code)) {
-            throw new ClassMateException("Module " + code + " is already marked as completed!");
+    public void markModuleDone(Module module) throws ClassMateException {
+        // String code = moduleCode.toUpperCase();
+    
+        if (userCompletedModules.contains(module.getModuleCode())) {
+            throw new ClassMateException(module.getModuleCode() + " is already marked as completed!");
         }
-        userCompletedModules.add(code);
+        ArrayList<String> prereqs = module.getPrerequisites();
+
+        if (!userCompletedModules.containsAll(prereqs)) {
+            throw new ClassMateException(
+                "Cannot mark " + module.getModuleCode() +" done. Please ensure you have done all of its prerequisites"
+            );
+        }
+        // Module module = major.findModule(code);
+        userCompletedModules.add(module.getModuleCode());
     }
 
     /*

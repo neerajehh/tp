@@ -1,7 +1,7 @@
 # Tran Viet Khoa's Project Portfolio Page
 
 ## Overview
-ClassMate is an academic chatbot that helps NUS CEG students plan their modules and academic pathway. It allows users to track completed modules, explore prerequisites, and manage their specialization progress through a CLI interface.
+ClassMate is an academic chatbot that helps NUS CEG students plan their modules and academic pathway. It allows users to track completed modules, explore prerequisites, and manage their specialisation progress through a CLI interface.
 
 ---
 
@@ -32,22 +32,22 @@ EE4204
         └── CS1010
 ```
 
-### **Set Specialization**
+### **Set Specialisation**
 **What it does:**  
-Allows users to select and set their desired CEG specialization.
+Allows users to select and set their desired CEG specialisation.
 
 **Why it is useful:**  
-Choosing a specialization affects which modules a student should take. This feature personalizes the user’s academic planning experience.
+Choosing a specialisation affects which modules a student should take. This feature personalizes the user’s academic planning experience.
 
 **Implementation details:**
-- Accepts a specialization index as input  
-- Maps the index to a predefined list of specializations  
-- Stores the selected specialization in the user profile  
+- Accepts a specialisation index as input  
+- Maps the index to a predefined list of specialisations  
+- Stores the selected specialisation in the user profile  
 - Ensures persistence so the selection is retained across sessions  
 - Validates input to prevent invalid indices  
 
 **Example usage:**
-setSpecialization Robotics
+setSpecialisation Robotics
 
 * **Check User Profile**
 Displays the user’s current academic profile, including selected specialisation and completed modules.
@@ -59,7 +59,7 @@ Displays the user’s current academic profile, including selected specialisatio
 ```
 Your Academic Profile:
 ______________________________
-Specialization: ROBOTICS
+Specialisation: ROBOTICS
 Completed Modules:
   [DONE] CS2040C
   [DONE] CS2113

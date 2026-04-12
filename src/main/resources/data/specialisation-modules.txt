@@ -3,7 +3,7 @@ Internet of Things,Core,Data Science for the Internet of Things,EE4211,4,1,EE221
 Internet of Things,Core,Modern Microelectronics Devices and Sensors,EE4409,4,2,CG2027
 Internet of Things,Elective,Computer Engineering Capstone Project,CG4002,8,1/2,CS2113
 Internet of Things,Elective,Wireless Networking,CS4222,4,2,EE4204|ST2334
-Internet of Things,Elective,Computer Networks,EE4204,4,1/2,None
+Internet of Things,Elective,Computer Networks,EE4204,4,1/2,CS2113
 Internet of Things,Elective,Hardware for Internet of Things,EE4216,4,1,EE2026
 Internet of Things,Elective,Embedded Hardware System Design,EE4218,4,2,CG2028
 Internet of Things,Elective,Machine Learning,CS3244,4,1/2,CS2040C|ST2334|MA1508E|MA1511|MA1512
