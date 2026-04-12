@@ -19,7 +19,7 @@ public class QueryModuleAvailabilityCommand extends Command {
      * Constructs a {@code QueryModuleAvailabilityCommand} with the given arguments.
      *
      * @param args The user input containing the module code and semester.
-     * @throws ClassMateException If the input does not contain both module code and semester.
+     * @throws ClassMateException If the input does not contain exactly module code and semester.
      */
     public QueryModuleAvailabilityCommand(String args) {
 
@@ -27,6 +27,11 @@ public class QueryModuleAvailabilityCommand extends Command {
 
         if (parts.length < 2) {
             throw new ClassMateException("Format: queryModuleAvailability <MODULE_CODE> <SEM>");
+        }
+
+        if (parts.length > 2) {
+            throw new ClassMateException(
+                    "Too many arguments. Format: queryModuleAvailability <MODULE_CODE> <SEM>");
         }
 
         this.moduleCode = parts[0].toUpperCase();
