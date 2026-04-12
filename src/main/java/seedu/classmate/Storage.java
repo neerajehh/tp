@@ -22,7 +22,7 @@ public class Storage {
      */
     public Storage() {
         this.modulesFilePath = DATA_DIR + "/completedModules.txt";
-        this.specFilePath = DATA_DIR + "/specialization.txt";
+        this.specFilePath = DATA_DIR + "/specialisation.txt";
         ensureDirectoryExists();
     }
 

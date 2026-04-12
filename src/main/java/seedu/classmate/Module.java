@@ -195,7 +195,7 @@ public class Module {
             sb.append(isLast ? "└── " : "├── ");
         }
         sb.append(moduleCode).append("\n");
-        String newPrefix = prefix + (isLast ? "    " : "│   ");
+        String newPrefix = isFirst ? "" : prefix + (isLast ? "    " : "│   ");
         for (int i = 0; i < prerequisites.size(); i++) {
             String prereqCode = prerequisites.get(i);
             Module prereqModule = major.findModule(prereqCode);

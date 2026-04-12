@@ -168,11 +168,12 @@ Format: `viewSpecialisations`
 Expected output:
 ```
 List of all CEG Specialisations:
-1. Advanced Electronics
-2. Space Technolgy
-3. Industry 4.0
-4. Internet of Things
-5. Robotics
+1. Others
+2. Advanced Electronics
+3. Space Technolgy
+4. Industry 4.0
+5. Internet of Things
+6. Robotics
 Enter <viewSpecialisationInfo [index]> to know more about a specialisation.
 ```
 
@@ -237,7 +238,7 @@ Completed modules:
 
 Provides a detailed summary of your progress. It displays completed modules, remaining major requirements, and progress within your selected specialisations.
 
-Format: `checkprofile`
+Format: `checkProfile`
 
 ---
 

@@ -10,7 +10,7 @@ import seedu.classmate.ClassMateException;
 import java.util.logging.Logger;
 // @@author Michael-coding06
 /**
- * Represents a command to set the user's academic specialization.
+ * Represents a command to set the user's academic specialisation.
  */
 public class SetSpecialisationCommand extends Command {
 
@@ -32,13 +32,13 @@ public class SetSpecialisationCommand extends Command {
                                          "Format: setspecialisation <NAME>");
         }
 
-        logger.info("Setting specialization to: " + newSpecialisation);
+        logger.info("Setting specialisation to: " + newSpecialisation);
         
-        // Update the profile (this automatically saves to specialization.txt)
+        // Update the profile (this automatically saves to specialisation.txt)
         userProfile.addSpecialisation(newSpecialisation);
         storage.saveUserProfile(userProfile);
 
-        System.out.println("Success! Your specialization has been set to: " + newSpecialisation);
+        System.out.println("Success! Your specialisation has been set to: " + newSpecialisation);
         Ui.printLine();
     }
 }
