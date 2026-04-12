@@ -8,6 +8,7 @@ import seedu.classmate.SpecialisationOverview;
 import seedu.classmate.Storage;
 import seedu.classmate.UserProfile;
 
+import java.util.ArrayList;
 import java.util.logging.Logger;
 
 /**
@@ -20,13 +21,6 @@ public class MarkDoneCommand extends Command {
     private final UserProfile userProfile;
     private final Storage storage;
 
-    /**
-     * Constructs a MarkDoneCommand with the given module code.
-     *
-     * @param args The module code to mark as done.
-     * @param userProfile The user's profile containing their progress.
-     * @param storage The storage object to save completed modules.
-     */
     public MarkDoneCommand(String args, UserProfile userProfile, Storage storage) {
         assert args != null : "Args should not be null";
         assert userProfile != null : "UserProfile should not be null";
@@ -38,12 +32,10 @@ public class MarkDoneCommand extends Command {
 
     @Override
     public void executeCommand(Major major, Ui display, SpecialisationOverview specOverview) {
-        // Guard clause to check if invalid module input
         if (moduleCode.isEmpty()) {
             throw new ClassMateException("Please provide a module code. Format: markDone <MODULE_CODE>");
         }
 
-        // Guard clause to check if module is not under Major or specialisation
         Module module = major.findModule(moduleCode);
         if (module == null) {
             module = specOverview.findSpecialisationModule(moduleCode);
@@ -52,8 +44,21 @@ public class MarkDoneCommand extends Command {
             throw new ClassMateException("Module " + moduleCode + " not found in the curriculum.");
         }
 
-        // Module exists and can be marked as done
-        userProfile.markModuleDone(moduleCode); // Throws ClassMateException if already done
+        ArrayList<String> prerequisites = module.getPrerequisites();
+        ArrayList<String> completedModules = userProfile.getUserCompletedModules();
+        ArrayList<String> missingPrereqs = new ArrayList<>();
+        for (String prereq : prerequisites) {
+            if (!completedModules.contains(prereq)) {
+                missingPrereqs.add(prereq);
+            }
+        }
+        if (!missingPrereqs.isEmpty()) {
+            throw new ClassMateException("Cannot mark " + moduleCode
+                    + " as done. You have not completed the following prerequisite(s): "
+                    + String.join(", ", missingPrereqs));
+        }
+
+        userProfile.markModuleDone(moduleCode);
         storage.saveUserProfile(userProfile);
 
         logger.info("Marked " + moduleCode + " as done.");
