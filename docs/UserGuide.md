@@ -105,7 +105,7 @@ Examples:
 * `viewPrereqs CG2028`
 * `viewPrereqs CS2113`
 
-Expected output:
+Expected output: 
 ```
 EE4204  
 └── CS2113
