@@ -51,10 +51,14 @@ public class RemoveSpecialisationCommand extends Command {
     public void executeCommand(Major major, Ui ui, SpecialisationOverview specialisationOverview) {
         if (specToRemove.isEmpty()) {
             throw new ClassMateException("Please provide a specialisation name. " +
-                    "Format: removespecialisation <NAME>");
+                    "Format: removeSpecialisation <NAME>");
         }
 
         logger.info("Removing specialisation from profile: " + specToRemove);
+
+        if (specialisationOverview.getSpecialisationByName(specToRemove) == null) {
+            throw new ClassMateException("Invalid specialisation name: " + specToRemove);
+        }
 
         userProfile.removeSpecialisation(specToRemove);
 

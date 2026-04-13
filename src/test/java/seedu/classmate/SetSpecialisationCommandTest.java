@@ -37,6 +37,20 @@ public class SetSpecialisationCommandTest {
         userProfile = new UserProfile(new ArrayList<>(), new ArrayList<>());
     }
 
+    /**
+     * Creates a SpecialisationOverview with valid specialisation names for validation checks.
+     */
+    private SpecialisationOverview createValidSpecOverview() {
+        HashMap<String, ArrayList<Module>> specMap = new HashMap<>();
+        specMap.put("Robotics", new ArrayList<>());
+        specMap.put("Internet of Things", new ArrayList<>());
+        specMap.put("Space Technology", new ArrayList<>());
+        specMap.put("Industry 4.0", new ArrayList<>());
+        specMap.put("Advanced Electronics", new ArrayList<>());
+        specMap.put("Others", new ArrayList<>());
+        return new SpecialisationOverview(specMap);
+    }
+
     @AfterEach
     void cleanup() {
         // Delete test files after each run so tests don't interfere with each other
@@ -51,7 +65,7 @@ public class SetSpecialisationCommandTest {
     void execute_validSpecialisation_addsSuccessfully() {
         SetSpecialisationCommand cmd = new SetSpecialisationCommand("Robotics", userProfile, storage);
 
-        assertDoesNotThrow(() -> cmd.executeCommand(major, ui, specOverview));
+        assertDoesNotThrow(() -> cmd.executeCommand(major, ui, createValidSpecOverview()));
 
         ArrayList<String> specs = userProfile.getUserSpecialisations();
         assertEquals(1, specs.size());
@@ -65,8 +79,8 @@ public class SetSpecialisationCommandTest {
         SetSpecialisationCommand cmd2 = new SetSpecialisationCommand("Internet of Things", userProfile, storage);
 
         assertDoesNotThrow(() -> {
-            cmd1.executeCommand(major, ui, specOverview);
-            cmd2.executeCommand(major, ui, specOverview);
+            cmd1.executeCommand(major, ui, createValidSpecOverview());
+            cmd2.executeCommand(major, ui, createValidSpecOverview());
         });
 
         ArrayList<String> specs = userProfile.getUserSpecialisations();
@@ -95,13 +109,13 @@ public class SetSpecialisationCommandTest {
 
         // First two adds should succeed
         assertDoesNotThrow(() -> {
-            cmd1.executeCommand(major, ui, specOverview);
-            cmd2.executeCommand(major, ui, specOverview);
+            cmd1.executeCommand(major, ui, createValidSpecOverview());
+            cmd2.executeCommand(major, ui, createValidSpecOverview());
         });
 
         // Third add should hit the specialisation limit and throw exception
         ClassMateException exception = assertThrows(ClassMateException.class,
-                () -> cmd3.executeCommand(major, ui, specOverview));
+                () -> cmd3.executeCommand(major, ui, createValidSpecOverview()));
 
         assertEquals("You can only select up to 2 specialisations.", exception.getMessage());
     }
@@ -113,12 +127,24 @@ public class SetSpecialisationCommandTest {
         SetSpecialisationCommand cmd2 = new SetSpecialisationCommand("Robotics", userProfile, storage);
 
         // First one should succeed
-        assertDoesNotThrow(() -> cmd1.executeCommand(major, ui, specOverview));
+        assertDoesNotThrow(() -> cmd1.executeCommand(major, ui, createValidSpecOverview()));
 
         // Second one (duplicate) should throw your ClassMateException
         ClassMateException exception = assertThrows(ClassMateException.class,
-                () -> cmd2.executeCommand(major, ui, specOverview));
+                () -> cmd2.executeCommand(major, ui, createValidSpecOverview()));
 
         assertEquals("You have already selected this specialisation.", exception.getMessage());
+    }
+
+    // Test for invalid specialisation entry
+    @Test
+    void execute_invalidSpecialisation_throwsException() {
+        SetSpecialisationCommand cmd = new SetSpecialisationCommand("NotASpec", userProfile, storage);
+
+        ClassMateException exception = assertThrows(ClassMateException.class,
+                () -> cmd.executeCommand(major, ui, specOverview));
+
+        assertEquals("Invalid specialisation name.", exception.getMessage());
+        assertTrue(userProfile.getUserSpecialisations().isEmpty());
     }
 }
