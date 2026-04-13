@@ -1,19 +1,24 @@
 @startuml
 actor User
-participant ClassMate
-participant Parser
-participant CommandManager
-participant Command
+participant "ClassMate" as ClassMate
+participant "Parser" as Parser
+participant "CommandManager" as CommandManager
+participant "Command" as Command
 
 User -> ClassMate : enters command text
 ClassMate -> Parser : parse(input, completedModules,\nstorage, userProfile)
 activate Parser
 
 Parser -> Parser : trim and validate input
+activate Parser
 alt input is empty
     Parser --> ClassMate : throw ClassMateException
 else input is valid
     Parser -> Parser : split command word and arguments
+    activate Parser
+    Parser --> Parser : return
+    deactivate Parser
+
     Parser -> CommandManager : createCommand(commandWord,\narguments, completedModules,\nstorage, userProfile)
     activate CommandManager
 
@@ -26,11 +31,14 @@ else input is valid
     deactivate CommandManager
     Parser --> ClassMate : Command object
 end
+Parser --> Parser : return
 
 deactivate Parser
+
 
 ClassMate -> Command : executeCommand(major, ui,\nspecialisationOverview)
 activate Command
 Command --> ClassMate : result / update state
 deactivate Command
+deactivate Parser
 @enduml
