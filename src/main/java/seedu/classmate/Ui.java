@@ -251,7 +251,6 @@ public class Ui {
                 System.out.println("  - " + m.getModuleCode() + " : " + m.getModuleName());
             }
         }
-        printLine();
     }
 
     // @@author

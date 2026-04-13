@@ -79,7 +79,7 @@ public class CheckProfileCommand extends Command {
             }
         }
 
-        System.out.println("Keep up the great work!");
+        System.out.println("\nKeep up the great work!");
         Ui.printLine();
     }
 
