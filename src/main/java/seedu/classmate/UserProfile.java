@@ -62,6 +62,16 @@ public class UserProfile {
         userCompletedModules.add(module.getModuleCode());
     }
 
+    // @@author neerajehh
+    public void unmarkModuleDone(String moduleCode) throws ClassMateException {
+        String code = moduleCode.toUpperCase();
+        if (!userCompletedModules.contains(code)) {
+            throw new ClassMateException(code + " is not in your completed modules list.");
+        }
+        userCompletedModules.remove(code);
+    }
+    // @@author
+
     /*
      * SECTION: Methods to deal with user's specialisations
      */

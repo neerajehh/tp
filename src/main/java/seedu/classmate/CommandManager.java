@@ -15,6 +15,7 @@ import seedu.classmate.commands.ViewGradReqsCommand;
 import seedu.classmate.commands.ViewSpecialisationsCommand;
 import seedu.classmate.commands.CheckPrereqStatusCommand;
 import seedu.classmate.commands.CheckProfileCommand;
+import seedu.classmate.commands.UnmarkDoneCommand;
 
 public class CommandManager {
 
@@ -28,7 +29,7 @@ public class CommandManager {
             return new ByeCommand();
 
         case "viewgradreqs":
-            return new ViewGradReqsCommand();
+            return new ViewGradReqsCommand(userProfile);
 
         case "viewprereqs":
             return new PrereqCommand(arguments);
@@ -44,6 +45,9 @@ public class CommandManager {
 
         case "viewspecialisationinfo":
             return new SpecialisationInfoCommand(arguments);
+
+        case "unmarkdone":
+            return new UnmarkDoneCommand(arguments, userProfile, storage);
 
         case "markdone":
             return new MarkDoneCommand(arguments, userProfile, storage);

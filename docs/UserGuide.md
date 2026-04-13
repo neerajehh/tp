@@ -170,7 +170,7 @@ Expected output:
 List of all CEG Specialisations:
 1. Others
 2. Advanced Electronics
-3. Space Technolgy
+3. Space Technology
 4. Industry 4.0
 5. Internet of Things
 6. Robotics
