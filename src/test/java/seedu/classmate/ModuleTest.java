@@ -89,7 +89,7 @@ class ModuleTest {
         Module module = new Module("CG2027", "Transistor-level Digital Circuit", 4);
         module.setSemester("1");
         String result = module.checkAvailability("sem2");
-        assertEquals("No, CG2027 is not available in sem2.", result);
+        assertEquals("No, CG2027 is not available in Semester 2.", result);
     }
 
     @Test
