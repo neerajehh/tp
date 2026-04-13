@@ -6,6 +6,7 @@ import seedu.classmate.Storage;
 import seedu.classmate.Ui;
 import seedu.classmate.UserProfile;
 import seedu.classmate.ClassMateException;
+import seedu.classmate.Specialisation;
 
 import java.util.logging.Logger;
 // @@author Michael-coding06
@@ -33,9 +34,14 @@ public class SetSpecialisationCommand extends Command {
         }
 
         logger.info("Setting specialisation to: " + newSpecialisation);
-        
+
+        Specialisation spec = specialisationOverview.getSpecialisationByName(newSpecialisation);
+        if (spec == null) {
+            throw new ClassMateException("Invalid specialisation name.");
+        }
+
         // Update the profile (this automatically saves to specialisation.txt)
-        userProfile.addSpecialisation(newSpecialisation);
+        userProfile.addSpecialisation(spec.getSpecialisationName());
         storage.saveUserProfile(userProfile);
 
         System.out.println("Success! Your specialisation has been set to: " + newSpecialisation);
