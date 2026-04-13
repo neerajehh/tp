@@ -8,10 +8,9 @@ Welcome to
 I'm your CEG course planning assistant!
 Type 'help' to see available commands.
 ______________________________
-______________________________
 ClassMate > Available commands:
 - help:
-    Viewing help
+    Viewing exhaustive list of ClassMate commands
 - bye:
     Exit the application
 - viewGradReqs:
@@ -43,10 +42,8 @@ ClassMate > Available commands:
     View your comprehensive academic profile,
     including remaining major core and specialisation progress
 ______________________________
-______________________________
 ClassMate > ______________________________
     (!) ERROR: Unknown command. Enter 'help' for available commands.
-______________________________
 ______________________________
 ClassMate > ______________________________
 Here is a list of modules required to fulfill CEG Major:
@@ -71,7 +68,6 @@ CG3201 Machine Learning and Deep Learning
 EE2211 Introduction to Machine Learning
 CG3207 Computer Architecture
 EE4204 Computer Networks
-______________________________
 ______________________________
 ClassMate > Goodbye! Happy course planning!
 ______________________________
