@@ -111,7 +111,7 @@ public class Module {
                " Units: " + moduleUnit + "\n" +
                " Semester: " + semester + "\n" +
                " Prerequisites: " + prereqStr + "\n" +
-               " Can take: " + canTake + "\n";
+               " Can take: " + canTake;
     }
 
     /**

@@ -29,7 +29,6 @@ public class Ui {
      * @return The raw string input, or null if there is no more input.
      */
     public String readCommand() {
-        printLine();
         System.out.print("ClassMate > "); // Input prompt '>'
         if (in.hasNextLine()) {
             return in.nextLine();
@@ -252,7 +251,6 @@ public class Ui {
                 System.out.println("  - " + m.getModuleCode() + " : " + m.getModuleName());
             }
         }
-        printLine();
     }
 
     // @@author

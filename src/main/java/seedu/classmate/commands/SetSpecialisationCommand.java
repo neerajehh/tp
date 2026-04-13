@@ -8,6 +8,7 @@ import seedu.classmate.UserProfile;
 import seedu.classmate.ClassMateException;
 import seedu.classmate.Specialisation;
 
+
 import java.util.logging.Logger;
 // @@author Michael-coding06
 /**
@@ -31,6 +32,13 @@ public class SetSpecialisationCommand extends Command {
         if (newSpecialisation.isEmpty()) {
             throw new ClassMateException("Please provide a specialisation name. " +
                                          "Format: setspecialisation <NAME>");
+        }
+
+        Specialisation validSpecialisation = specialisationOverview.getSpecialisationByName(newSpecialisation);
+
+        if (validSpecialisation == null) {
+            throw new ClassMateException("'" + newSpecialisation + "' is an invalid specialisation. " +
+                    "Enter <viewSpecialisations> to know what specialisations are available. ");
         }
 
         logger.info("Setting specialisation to: " + newSpecialisation);
