@@ -67,7 +67,7 @@ public class Ui {
         System.out.println("""
                 Available commands:
                 - help: 
-                    Viewing help
+                    Viewing exhaustive list of ClassMate commands
                 - bye: 
                     Exit the application
                 - viewGradReqs: 
