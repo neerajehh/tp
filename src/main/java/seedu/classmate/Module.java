@@ -73,6 +73,9 @@ public class Module {
         if (!query.equals("sem1") && !query.equals("sem2")) {
             return "Invalid semester. Please enter sem1 or sem2.";
         }
+
+        String displaySemester = query.equals("sem1") ? "Semester 1" : "Semester 2";
+
         if (semester.equals("1/2")) {
             return moduleCode + " is available in both Semester 1 and Semester 2.";
         } else if (semester.equals("1") && query.equals("sem1")) {
@@ -80,7 +83,7 @@ public class Module {
         } else if (semester.equals("2") && query.equals("sem2")) {
             return "Yes, " + moduleCode + " is only available in Semester 2.";
         } else {
-            return "No, " + moduleCode + " is not available in " + querySemester + ".";
+            return "No, " + moduleCode + " is not available in " + displaySemester + ".";
         }
     }
 
