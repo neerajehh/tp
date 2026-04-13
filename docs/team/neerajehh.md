@@ -58,3 +58,8 @@ Given below are my contributions to the project.
 
 * **Review/mentoring contributions**:
   * Reviewed PRs from teammates and provided feedback on code quality and correctness.
+
+* **Additional Bug fixes (v2.1)**:
+  * Fixed `viewGradReqs` to filter out completed modules — previously showed all modules regardless of completion status, making it less useful for progress tracking.
+  * Added `unmarkDone` command — allows users to remove a module from their completed list if marked incorrectly, preventing an unrecoverable state.
+  * Fixed UG typo "Space Technolgy" → "Space Technology" in the specialisations section.
